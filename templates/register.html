@@ -11,15 +11,69 @@
 					<div class="input-field col s12">
 						<i class="fas fa-user-plus prefix"></i>
 						<input id="username" name="username" type="text" class="validate">
-						<label for="username">Username</label>
+						<label for="username">Charity Name</label>
 					</div>
                 </div>
+
+                <!-- charity overview field-->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-align-left prefix"></i>
+						<input id="charity_overview" name="charity_overview" type="text" class="validate">
+						<label for="charity_overview">Charity Overview - Please share a brief description of your charity</label>
+					</div>
+                </div>
+
+                <!-- charity number field-->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-id-card prefix"></i>
+						<input id="charity_registration_number" name="charity_registration_number" type="text" class="validate">
+						<label for="charity_registration_number">Charity Registration Number</label>
+					</div>
+                </div>
+
+                 <!-- charity address field-->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-map-marker prefix"></i>
+						<input id="charity_address" name="charity_address" type="text" class="validate">
+						<label for="charity_address">Charity Address</label>
+					</div>
+                </div>
+
+                 <!-- charity contact number field-->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-phone prefix"></i>
+						<input id="charity_contact_number" name="charity_contact_number" type="text" class="validate">
+						<label for="charity_contact_number">Charity Contact Number</label>
+					</div>
+                </div>
+
+                <!-- charity website field-->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-desktop prefix"></i>
+						<input id="charity_website" name="charity_website" type="url" class="validate">
+						<label for="charity_website">Charity Website Number</label>
+					</div>
+                </div>
+                <!-- charity logo field-->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-picture-o prefix"></i>
+						<input id="charity_logo" name="charity_logo" type="url" class="validate">
+						<label for="charity_logo">Charity Logo - please paste image URL here </label>
+					</div>
+                </div>
+
                 <!-- passowrd field-->
                 <div class="row">
                     <div class="input-field col s12">
 						<i class="fas fa-user-lock prefix"></i>
                         <input id="password" name="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                        <label for="password">Create Password</label>
                     </div>
                 </div>
                 <!-- register button-->
@@ -30,6 +84,23 @@
                 </div>
             </div>
         </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">
+                Already Registered?
+                <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Log In</a>
+            </p>
+        </div>
     </div>
 
 {% endblock %}
