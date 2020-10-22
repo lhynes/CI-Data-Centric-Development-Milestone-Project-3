@@ -1,14 +1,36 @@
 header{
-    background: url(https://d5qsyj6vaeh11.cloudfront.net/images/markets/en-us/goodtimes2014/galway/jii_galway_banner4.jpg);
+    /*background: url(https://user-images.githubusercontent.com/17083566/96911996-8cd12280-1499-11eb-9a44-fd8675133231.png);*/
+    background: url(https://user-images.githubusercontent.com/17083566/96912450-521bba00-149a-11eb-89e5-0dff1b9cd002.png);
     background-size: cover;
     background-position: center;
-    min-height: 1000px;
+    min-height: 500px; 
+}
+
+.fas{
+    color: #770d56;
+}
+
+
+.fa-sign-in-alt{
+    color:white;
+}
+
+.btn-large{
+    background-color: #770d56;
 }
 
 
 
+
+
+
+
+
+
+/* @media queries*/
+
 @media screen and (max-width:670px){
     header{
-        min-height:500px;
+        min-height:250px;
     }
 }

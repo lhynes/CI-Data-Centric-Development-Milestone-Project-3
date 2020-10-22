@@ -19,24 +19,25 @@
 	<header>
 		<nav class="nav-wrapper nav-extended transparent">
             <div class="container">
-            <a href="{{ url_for('get_projects') }}" class="brand-logo">Galway Chartiy Projects</a>
+            <a href="{{ url_for('index') }}" class="brand-logo">Galway Chartiy Projects</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-					<li><a href="{{ url_for('get_projects') }}">Home</a></li>
+					<li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('get_projects') }}">View Projects</a></li>
 					<li><a href="#">Profile</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">View Projects</a></li>
+                    <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                    
 				</ul>
                 </div>
 		</nav>
 
 		<ul class="sidenav" id="mobile-demo">
         <li><h4 class="center-align light-blue-text text-darken 4">Galway Chartiy Projects</h4></li>
-            <li><a href="{{ url_for('get_projects') }}">Home</a></li>
-			        
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+			        <li><a href="{{ url_for('get_projects') }}">View Projects</a></li>
 					<li><a href="#">Profile</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">View Projects</a></li>
+                    <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                    
 		</ul>
 	</header>
 
