@@ -127,6 +127,14 @@ def create_project():
 
     categories = mongo.db.project_categories.find().sort("project_category_name", 1)
     return render_template("create_project.html", categories=categories)
+    
+
+@app.route("/edit_project/<project_id>", methods=["GET", "POST"])
+def edit_project(project_id):
+    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+
+    categories = mongo.db.project_categories.find().sort("project_category_name", 1)
+    return render_template("edit_project.html", project=project, categories=categories)
 
 
 if __name__ == "__main__":

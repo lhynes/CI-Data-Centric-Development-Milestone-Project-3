@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">Edit Project</h3>
+<div class="container">
+	<div class="row card-panel grey lighten-5">
+		<form class="col s12" method="POST" action="{{ url_for('edit_project', project_id=project._id) }}">
+        <!-- Project Categories Selection -->
+			<div class="row">
+				<div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix"></i>
+                    
+					<select id="project_category_name" name="project_category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Project Category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.project_category_name }}">{{ category.project_category_name }}</option>
+                        {% endfor %}
+                    </select>
+
+					<label for="project_category_name">Project Category</label>
+				</div>
+			</div>
+
+            <!-- Project Name -->
+            <div class="row">
+				<div class="input-field col s12">
+					<i class="fas fa-pencil-alt prefix"></i>
+					<input id="project_name" name="project_name" minlength="5" maxlength="50"
+                        type="text" class="validate" required>
+					<label for="project_name">Project Name</label>
+				</div>
+			</div>
+
+            <!-- Project Description -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="fas fa-align-left prefix"></i>
+                    <i class="fas fa-exclamation-circle tooltipped"
+                        data-position="right" data-tooltip="Please enter a short description of your project (Maximum 200 characters)"></i>
+					<textarea id="project_description" name="project_description" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+					<label for="project_description">Project Description</label>
+				</div>
+			</div>
+
+            <!-- Project Image URL -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="fas fa-image prefix"></i>
+                    <i class="fas fa-exclamation-circle tooltipped"
+                        data-position="right" data-tooltip="Please enter a url for your image"></i>
+					<textarea id="project_img_url" name="project_img_url" value="https://placehold.it/700x400" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" ></textarea>
+					<label for="project_img_url">Project Image URL</label>
+				</div>
+			</div>
+
+            <!-- Project Date -->
+			<div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix"></i>
+                    <input id="project_date" name="project_date" type="text" class="datepicker validate" required>
+                    <label for="project_date">Project Date</label>
+                </div>
+            </div>
+
+            <!-- Urgent swtich -->
+			<div class="row">
+				<div class="input-field col s12">
+					<div class="switch">
+						<i class="fas fa-exclamation-circle prefix"></i>
+						<label for="is_urgent">
+                            <input type="checkbox" id="is_urgent" name="is_urgent">
+                            <span class="lever"></span>
+                            This Project Requires Urgent Support
+                        </label>
+					</div>
+				</div>
+			</div>
+
+             <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                        Edit Project <i class="material-icons right">edit</i>
+                    </button>
+                </div>
+            </div>
+		</form>
+	</div>
+</div>
+
+
+{% endblock %}
