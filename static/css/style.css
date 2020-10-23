@@ -6,10 +6,25 @@ header{
     min-height: 500px; 
 }
 
+.h1,h2,h3,h4,h5{
+    color: #770d56;
+}
+
+
 .fas{
     color: #770d56;
 }
 
+
+.page-footer {
+    background-color: #770d56;
+    margin-top: 10%;
+}
+
+i.fas.fa-exclamation-circle.tooltipped {
+    left: 3%;
+    position: relative;
+}
 
 .fa-sign-in-alt{
     color:white;
