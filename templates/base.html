@@ -26,8 +26,8 @@
 					<li><a href="{{ url_for('index') }}">Home</a></li>
 					<li><a href="{{ url_for('get_projects') }}">Find A Project</a></li>
 					{% if session.user %}
-					<li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('create_project') }}">Create Project</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
 					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
 					{% else %}
 					<li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -42,8 +42,8 @@
 			<li><a href="{{ url_for('index') }}">Home</a></li>
 			<li><a href="{{ url_for('get_projects') }}">Find a Project</a></li>
 			{% if session.user %}
-				<li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('create_project') }}">Create Project</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
 				<li><a href="{{ url_for('logout') }}">Log Out</a></li>
 			{% else %}
 				<li><a href="{{ url_for('login') }}">Log In</a></li>
