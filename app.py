@@ -108,6 +108,11 @@ def logout():
     return redirect(url_for("index"))
 
 
+@app.route("/create_project")
+def create_project():
+    return render_template("create_project.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
