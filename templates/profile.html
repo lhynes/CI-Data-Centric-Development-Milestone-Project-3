@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row">
-	<div class="col s12 m8 offset-m2">
-		<div class="card-panel">
-			<h3 class="center-align light-blue-text text-darken 4">
-				{{ username }}'s Profile<br>
-                {{ charity_overview }} overview<br>
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card-panel">
+                <h3 class="center-align light-blue-text text-darken 4">
+                            Welcome {{ username.username }}<br>
+                            {{ username.charity_overview }}<br>
+                            {{ username.charity_registration_number }}<br>
+                </h3>
+            </div>
+        </div>
+    </div>
 
-			</h3>
-		</div>
-	</div>
-</div>
-
-	{% endblock %}
+{% endblock %}
