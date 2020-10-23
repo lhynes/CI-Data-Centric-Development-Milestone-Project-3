@@ -9,12 +9,14 @@
 			<div class="row">
 				<div class="input-field col s12">
                     <i class="fas fa-folder-open prefix"></i>
+                    
 					<select id="project_category_name" name="project_category_name" class="validate" required>
                         <option value="" disabled selected>Choose Project Category</option>
                         {% for category in categories %}
                             <option value="{{ category.project_category_name }}">{{ category.project_category_name }}</option>
                         {% endfor %}
                     </select>
+
 					<label for="project_category_name">Project Category</label>
 				</div>
 			</div>
