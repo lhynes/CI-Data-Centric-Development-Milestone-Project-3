@@ -32,7 +32,7 @@
     <div class="row">
     {% for project in projects %} 
             <div class="col s12 m6 l4">
-                <div class="card sticky-action hoverable" style="overflow: visible;">
+                <div class="card sticky-action hoverable fixed-height" style="overflow: visible;">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="{{ project.project_img_url}}">
                     </div>
@@ -43,10 +43,12 @@
                     <div class="card-action"> 
                     <a href="#">This is a link</a>
                     </div>
-                    <div class="card-action"> 
-                        <div class="right-align">
-                            <a href="{{ url_for('edit_project', project_id=project._id) }}" class="waves-effect waves-light btn-small"><i class="material-icons left">edit</i>Edit</a>
-                            <a href="" class="waves-effect waves-light btn-small"><i class="material-icons left">done</i>Complete</a>
+                    <div class="card-action valign-wrapper"> 
+                        <div class="left">
+                            {% if session.user|lower == project.created_by|lower %}
+                                <a href="{{ url_for('edit_project', project_id=project._id) }}" class="waves-effect waves-light btn-small"><i class="material-icons left">edit</i>Edit</a>
+                                <a href="" class="waves-effect waves-light btn-small"><i class="material-icons left">done</i>Complete</a>
+                            {% endif %}
                         </div>
                     </div>
 

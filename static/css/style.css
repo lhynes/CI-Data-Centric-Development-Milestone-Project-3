@@ -39,7 +39,9 @@ i.fas.fa-exclamation-circle.tooltipped {
     line-height: 2;
 }
 
-
+.fixed-height{
+    min-height:470px;
+}
 
 /* @media queries*/
 

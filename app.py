@@ -127,12 +127,26 @@ def create_project():
 
     categories = mongo.db.project_categories.find().sort("project_category_name", 1)
     return render_template("create_project.html", categories=categories)
-    
+
 
 @app.route("/edit_project/<project_id>", methods=["GET", "POST"])
 def edit_project(project_id):
-    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+    if request.method == "POST":
+        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        edit = {
+            "project_category_name": request.form.get("project_category_name"),
+            "project_name": request.form.get("project_name"),
+            "project_description": request.form.get("project_description"),
+            "project_img_url": request.form.get("project_img_url"),
+            "is_urgent": is_urgent,
+            "project_date": request.form.get("project_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.projects.update({"_id": ObjectId(project_id)}, edit)
+        flash("Project Successfully Updated")
+        return redirect(url_for("get_projects"))
 
+    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     categories = mongo.db.project_categories.find().sort("project_category_name", 1)
     return render_template("edit_project.html", project=project, categories=categories)
 
