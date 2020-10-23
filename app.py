@@ -110,7 +110,8 @@ def logout():
 
 @app.route("/create_project")
 def create_project():
-    return render_template("create_project.html")
+    categories = mongo.db.project_categories.find().sort("project_category_name", 1)
+    return render_template("create_project.html", categories=categories)
 
 
 if __name__ == "__main__":
