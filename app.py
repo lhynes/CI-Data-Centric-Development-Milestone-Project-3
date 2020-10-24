@@ -52,7 +52,7 @@ def register():
             "username": request.form.get("username").lower(),
             "charity_overview": request.form.get("charity_overview").lower(),
             "charity_registration_number": request.form.get(
-                "charity_registration_number").lower(),
+            "charity_registration_number").lower(),
             "charity_website": request.form.get("charity_website"),
             "charity_logo": request.form.get("charity_logo"),
             "password": generate_password_hash(request.form.get("password"))
@@ -85,7 +85,7 @@ def login():
                         "profile", username=session["user"]))
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password","danger")
+                flash("Incorrect Username and/or Password", "danger")
                 return redirect(url_for("login"))
 
         else:
@@ -122,7 +122,8 @@ def create_project():
         project = {
             "project_category_name": request.form.get("project_category_name"),
             "project_name": request.form.get("project_name"),
-            "task_description": request.form.get("task_description"),
+            "project_overview": request.form.get("project_overview"),
+            "project_description": request.form.get("project_description"),
             "project_img_url": request.form.get("project_img_url"),
             "is_urgent": is_urgent,
             "project_date": request.form.get("project_date"),
@@ -136,6 +137,27 @@ def create_project():
     return render_template("create_project.html", categories=categories)
 
 
+@app.route("/project_detail/<project_id>", methods=["GET", "POST"])
+def project_detail(project_id):
+    if request.method == "POST":
+        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        detail = {
+            "project_category_name": request.form.get("project_category_name"),
+            "project_name": request.form.get("project_name"),
+            "project_overview": request.form.get("project_overview"),
+            "project_description": request.form.get("project_description"),
+            "project_img_url": request.form.get("project_img_url"),
+            "is_urgent": is_urgent,
+            "project_date": request.form.get("project_date"),
+            "created_by": session["user"]
+        }
+
+    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+    categories = mongo.db.project_categories.find().sort("project_category_name", 1)
+    return render_template("project_detail.html", project=project, categories=categories)
+
+
+
 @app.route("/edit_project/<project_id>", methods=["GET", "POST"])
 def edit_project(project_id):
     if request.method == "POST":
@@ -143,6 +165,7 @@ def edit_project(project_id):
         edit = {
             "project_category_name": request.form.get("project_category_name"),
             "project_name": request.form.get("project_name"),
+            "project_overview": request.form.get("project_overview"),
             "project_description": request.form.get("project_description"),
             "project_img_url": request.form.get("project_img_url"),
             "is_urgent": is_urgent,
@@ -164,10 +187,12 @@ def delete_project(project_id):
     flash("This Project is now complete")
     return redirect(url_for("get_projects"))
 
+
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.project_categories.find().sort("project_category_name", 1))
     return render_template("categories.html", categories=categories)
+
 
 @app.route("/create_category", methods=["GET", "POST"])
 def create_category():
@@ -188,19 +213,21 @@ def edit_category(category_id):
         submit = {
             "project_category_name": request.form.get("project_category_name")
         }
-        mongo.db.project_categories.update({"_id": ObjectId(category_id)}, submit)
+        mongo.db.project_categories.update(
+            {"_id": ObjectId(category_id)}, submit)
         flash("Category Successfully Updated")
         return redirect(url_for("get_categories"))
 
-    category = mongo.db.project_categories.find_one({"_id": ObjectId(category_id)})
+    category = mongo.db.project_categories.find_one(
+        {"_id": ObjectId(category_id)})
     return render_template("edit_category.html", category=category)
+
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.project_categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
-
 
 
 if __name__ == "__main__":
