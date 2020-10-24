@@ -47,6 +47,31 @@ i.fas.fa-exclamation-circle.tooltipped {
     min-height: 340px;
 }
 
+
+.flashbox{
+    padding:10px;
+    border-radius:25px;
+}
+
+.flashbox-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.flashbox-message {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    
+}
+
+.flashbox-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
 /* @media queries*/
 
 @media screen and (max-width:670px){

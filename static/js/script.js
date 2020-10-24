@@ -2,6 +2,7 @@ $(document).ready(function(){
     $(".sidenav").sidenav({edge: "right"});
     $(".tooltipped").tooltip();
     $("select").formSelect();
+    $("flash").parent().remove()
     $(".datepicker").datepicker({
         format: "dd mmmm, yyyy",
         yearRange: 3,
@@ -10,6 +11,13 @@ $(document).ready(function(){
             done: "Select"
         }
     });
+
+  setTimeout(function() {
+        $('.flash-message').fadeOut('slow');
+    }, 2000);
+
+
+
 
     validateMaterializeSelect();
     function validateMaterializeSelect() {
@@ -39,3 +47,4 @@ $(document).ready(function(){
         });
     }
 });
+

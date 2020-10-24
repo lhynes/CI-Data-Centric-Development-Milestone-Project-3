@@ -85,7 +85,7 @@ def login():
                         "profile", username=session["user"]))
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username and/or Password","danger")
                 return redirect(url_for("login"))
 
         else:
@@ -176,7 +176,7 @@ def create_category():
             "project_category_name": request.form.get("project_category_name")
         }
         mongo.db.project_categories.insert_one(category)
-        flash("New Category Added")
+        flash("New Category Added", "success")
         return redirect(url_for("get_categories"))
 
     return render_template("create_category.html")
