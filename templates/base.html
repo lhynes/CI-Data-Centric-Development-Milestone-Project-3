@@ -24,10 +24,13 @@
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{ url_for('index') }}">Home</a></li>
-					<li><a href="{{ url_for('get_projects') }}">Find A Project</a></li>
+					<li><a href="{{ url_for('get_projects') }}">Find Projects</a></li>
 					{% if session.user %}
-                    <li><a href="{{ url_for('create_project') }}">Create Project</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('create_project') }}">Create Projects</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                        <li><a href="{{ url_for('get_categories') }}">Project Categories</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Account</a></li>
 					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
 					{% else %}
 					<li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -43,6 +46,9 @@
 			<li><a href="{{ url_for('get_projects') }}">Find a Project</a></li>
 			{% if session.user %}
                 <li><a href="{{ url_for('create_project') }}">Create Project</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('get_categories') }}">Project Categories</a></li>
+                {% endif %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
 				<li><a href="{{ url_for('logout') }}">Log Out</a></li>
 			{% else %}

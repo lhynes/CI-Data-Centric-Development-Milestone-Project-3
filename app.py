@@ -157,11 +157,17 @@ def edit_project(project_id):
     categories = mongo.db.project_categories.find().sort("project_category_name", 1)
     return render_template("edit_project.html", project=project, categories=categories)
 
+
 @app.route("/delete_project/<project_id>")
 def delete_project(project_id):
     mongo.db.projects.remove({"_id": ObjectId(project_id)})
     flash("This Project is now complete")
     return redirect(url_for("get_projects"))
+
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.project_categories.find().sort("project_category_name", 1))
+    return render_template("categories.html", categories=categories)
 
 
 if __name__ == "__main__":
