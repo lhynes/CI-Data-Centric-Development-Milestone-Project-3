@@ -19,43 +19,48 @@
 
 <body>
 	<header>
+    <div>
+        <ul id="dropdown1" class="dropdown-content">
+        {% if session.user %}
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register Your Charity</a></li>
+        {% endif %}
+        </ul>
 		<nav class="nav-wrapper nav-extended transparent">
-			<div class="container">
 				<a href="{{ url_for('index') }}" class="brand-logo">Galway Chartiy Projects</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{ url_for('index') }}">Home</a></li>
 					<li><a href="{{ url_for('get_projects') }}">Find Projects</a></li>
-					{% if session.user %}
-                    <li><a href="{{ url_for('create_project') }}">Create Projects</a></li>
                     {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('get_categories') }}">Project Categories</a></li>
                     {% endif %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Account</a></li>
-					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
-					{% else %}
-					<li><a href="{{ url_for('login') }}">Log In</a></li>
-					<li><a href="{{ url_for('register') }}">Sign Up</a></li>
-					{% endif %}
-				</ul>
-			</div>
+                    {% if session.user %}
+                    <li><a href="{{ url_for('create_project') }}">Create Projects</a></li>
+                    {% endif %}
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account
+                    <i class="material-icons right">arrow_drop_down</i></a></li>
+				</ul>	
 		</nav>
+        </div>
 
 		    <ul class="sidenav" id="mobile-demo">
 			<li><h4 class="center-align light-blue-text text-darken 4">Galway Chartiy Projects</h4></li>
 			<li><a href="{{ url_for('index') }}">Home</a></li>
-			<li><a href="{{ url_for('get_projects') }}">Find a Project</a></li>
-			{% if session.user %}
-                <li><a href="{{ url_for('create_project') }}">Create Project</a></li>
-                {% if session.user|lower == "admin"|lower %}
-                    <li><a href="{{ url_for('get_categories') }}">Project Categories</a></li>
-                {% endif %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-				<li><a href="{{ url_for('logout') }}">Log Out</a></li>
-			{% else %}
-				<li><a href="{{ url_for('login') }}">Log In</a></li>
-				<li><a href="{{ url_for('register') }}">Sign Up</a></li>
-			{% endif %}
+					<li><a href="{{ url_for('get_projects') }}">Find Projects</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                        <li><a href="{{ url_for('get_categories') }}">Project Categories</a></li>
+                    {% endif %}
+                    {% if session.user %}
+                    <li><a href="{{ url_for('create_project') }}">Create Projects</a></li>
+                    {% endif %}
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account
+                    <i class="material-icons right">arrow_drop_down</i></a></li>
 		    </ul>
 	</header>
   

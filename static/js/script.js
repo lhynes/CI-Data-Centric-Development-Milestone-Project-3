@@ -1,8 +1,10 @@
 $(document).ready(function(){
     $(".sidenav").sidenav({edge: "right"});
+    $(".dropdown-trigger").dropdown();
     $(".tooltipped").tooltip();
     $("select").formSelect();
-    $("flash").parent().remove()
+    $('.modal').modal();
+    $("flash").parent().remove();
     $(".datepicker").datepicker({
         format: "dd mmmm, yyyy",
         yearRange: 3,
