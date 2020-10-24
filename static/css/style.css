@@ -10,6 +10,11 @@ header{
     color: #770d56;
 }
 
+/* nav bar */
+
+.dropdown-content{
+    top:-60px;
+}
 
 .fas{
     color: #770d56;
@@ -39,12 +44,22 @@ i.fas.fa-exclamation-circle.tooltipped {
     line-height: 2;
 }
 
+/* Cards */
 .fixed-height{
     min-height:470px;
 }
 
+.card-image-size{
+     min-height:175px;
+}
+
 .home-card-height{
     min-height: 340px;
+}
+
+.fixed-bottom{
+    position: absolute !important; 
+    bottom: 0px; 
 }
 
 
