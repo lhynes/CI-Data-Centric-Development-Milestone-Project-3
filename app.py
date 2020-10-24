@@ -45,7 +45,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists", "danger")
             return redirect(url_for("register"))
 
         register = {
@@ -61,7 +61,7 @@ def register():
 
          # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful!", "success")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
@@ -90,7 +90,7 @@ def login():
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password", "danger")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -110,7 +110,7 @@ def profile(username):
 @app.route("/logout")
 def logout():
     # remove user from session cookie
-    flash("You have been logged out")
+    flash("You have been successfully logged out", "success")
     session.pop("user")
     return redirect(url_for("index"))
 
@@ -130,7 +130,7 @@ def create_project():
             "created_by": session["user"]
         }
         mongo.db.projects.insert_one(project)
-        flash("Project Successfully Added")
+        flash("Project Successfully Added", "success")
         return redirect(url_for("get_projects"))
 
     categories = mongo.db.project_categories.find().sort("project_category_name", 1)
@@ -173,7 +173,7 @@ def edit_project(project_id):
             "created_by": session["user"]
         }
         mongo.db.projects.update({"_id": ObjectId(project_id)}, edit)
-        flash("Project Successfully Updated")
+        flash("Project Successfully Updated", "success")
         return redirect(url_for("get_projects"))
 
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
@@ -184,7 +184,7 @@ def edit_project(project_id):
 @app.route("/delete_project/<project_id>")
 def delete_project(project_id):
     mongo.db.projects.remove({"_id": ObjectId(project_id)})
-    flash("This Project is now complete")
+    flash("Project Complete", "success")
     return redirect(url_for("get_projects"))
 
 
@@ -201,7 +201,7 @@ def create_category():
             "project_category_name": request.form.get("project_category_name")
         }
         mongo.db.project_categories.insert_one(category)
-        flash("New Category Added", "success")
+        flash("New Category Successfully Added", "success")
         return redirect(url_for("get_categories"))
 
     return render_template("create_category.html")
@@ -215,7 +215,7 @@ def edit_category(category_id):
         }
         mongo.db.project_categories.update(
             {"_id": ObjectId(category_id)}, submit)
-        flash("Category Successfully Updated")
+        flash("Category Successfully Updated", "success")
         return redirect(url_for("get_categories"))
 
     category = mongo.db.project_categories.find_one(
@@ -226,7 +226,7 @@ def edit_category(category_id):
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.project_categories.remove({"_id": ObjectId(category_id)})
-    flash("Category Successfully Deleted")
+    flash("Category Successfully Deleted", "success")
     return redirect(url_for("get_categories"))
 
 
