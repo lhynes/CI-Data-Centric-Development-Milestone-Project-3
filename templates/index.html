@@ -53,7 +53,11 @@
                     <span class="card-title">
             <h1>Charities</h1>
             <p>will direct to register page if not logged in? </p>
-            <div class="card-action"> <a href="#">Create Projects</a> </div>
+            {% if session.user %}
+                <div class="card-action">  <a href="{{ url_for('create_project') }}">Create Projects</a></div>
+            {% else %}
+				<div class="card-action"><a href="{{ url_for('register') }}">Log In To Create Your Project</a></div>
+            {% endif %}
             </span>
                 </div>
             </div>
