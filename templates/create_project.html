@@ -31,12 +31,24 @@
 				</div>
 			</div>
 
+            <!-- Project Overview -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="fas fa-align-left prefix"></i>
+                    <i class="fas fa-exclamation-circle tooltipped"
+                        data-position="right" data-tooltip="Please enter the tag line for your project to appear on the card (Maximum 80 characters)"></i>
+					<textarea id="porject_overview" name="porject_overview" minlength="5"
+                        maxlength="80" class="materialize-textarea validate" required></textarea>
+					<label for="porject_overview">Project Overview</label>
+				</div>
+			</div>
+
             <!-- Project Description -->
 			<div class="row">
 				<div class="input-field col s12">
 					<i class="fas fa-align-left prefix"></i>
                     <i class="fas fa-exclamation-circle tooltipped"
-                        data-position="right" data-tooltip="Please enter a short description of your project (Maximum 200 characters)"></i>
+                        data-position="right" data-tooltip="Please enter a short description of your project (Maximum 400 characters)"></i>
 					<textarea id="project_description" name="project_description" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
 					<label for="project_description">Project Description</label>
