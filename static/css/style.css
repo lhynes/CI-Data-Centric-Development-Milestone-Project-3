@@ -43,6 +43,10 @@ i.fas.fa-exclamation-circle.tooltipped {
     min-height:470px;
 }
 
+.home-card-height{
+    min-height: 340px;
+}
+
 /* @media queries*/
 
 @media screen and (max-width:670px){
