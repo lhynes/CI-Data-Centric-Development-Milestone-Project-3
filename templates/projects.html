@@ -28,7 +28,7 @@
         <div class="col s12 m4">
             <div class="card hoverable large">
                 <div class="card-image card-image-size">
-                    <img class="bg-image responsive-img" src="{{ project.project_img_url}}" alt="{{ project.project_name }}" />
+                    <img class="bg-image responsive-img" src="{{ project.project_img_url}}" onerror="this.src='/static/images/default.pmg'" alt="{{ project.project_name }}" />
                 </div>
                 <div class="card-content minimalist">
                 <span class="card-title bg-text text-shadow">

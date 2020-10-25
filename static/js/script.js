@@ -14,6 +14,10 @@ $(document).ready(function(){
             done: "Select"
         }
     });
+    
+    $('img').on("error", function() {
+    $(this).attr('src', '/static/images/default.png');
+    });
 
   setTimeout(function() {
         $('.flash-message').fadeOut('slow');
