@@ -1,34 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
 
-/* ----------------------------------------------------------- Header */
-
-header{
-    background-color: #770d56;
-    background-size: cover;
-    background-position: center;
-    min-height: 300px;
-    background-repeat: no-repeat;
-   /*background: linear-gradient( rgba(0, 0, 0, 0.2), 
-    rgba(0, 0, 0, 0.2)),
-    url('https://res.cloudinary.com/daqyuuzq9/image/upload/v1603644783/Copy_of_Galway_Charity_Projects_qjh5lx.png');*/
-}
-
-.logo-text{
-    color: #fff !important;
-    display: inline-block;
-    font-size: 4.28rem !important;
-    padding-left: 5%;
-    padding-top: 5%;
-    letter-spacing: 4px;
-    line-height: 130%;
-    font-weight:900;
-}
 
 /* ----------------------------------------------------------- Fonts */
 
 
 .h1,h2,h3,h4,h5{
-    color: #770d56;
+    /* color: #770d56;*/
     font-family: 'Roboto', sans-serif;
 }
 
@@ -48,20 +25,46 @@ p{
 
 /* ----------------------------------------------------------- Colours */
 
+/* ----------------------------------------------------------- Page Title */
+
+.page-title{
+    color: #770d56;
+}
+
+/* ----------------------------------------------------------- Buttons */
+.btn-large{
+    background-color: #770d56;
+    border-radius:25px;
+}
 
 
+.btn-small{
+    height: 32.4px;
+    line-height: 32.4px;
+    font-size: 13px;
+    border-radius: 25px;
+    background-color: #770E56;
+    font-weight: bold;
+}
 
-/* ----------------------------------------------------------- Nav bar */
 
-.dropdown-content{
-    top:-60px;
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #ea89cc;
+}
+
+.alt-button{
+background-color: #26a69a;
+}
+
+
+.alt-button:hover, .alt-button-large:hover, .alt-button-small:hover {
+    background-color: #26a69a;
 }
 
 /* ----------------------------------------------------------- icons */
 .fas{
     color: #770d56;
 }
-
 
 i.fas.fa-exclamation-circle.tooltipped {
     left: 3%;
@@ -72,9 +75,6 @@ i.fas.fa-exclamation-circle.tooltipped {
     color:white;
 }
 
-.btn-large{
-    background-color: #770d56;
-}
 
 /* ----------------------------------------------------------- Flash Messages*/
 
@@ -106,18 +106,86 @@ i.fas.fa-exclamation-circle.tooltipped {
     border-color: #f5c6cb;
 }
 
-/* ----------------------------------------------------------- index.html */
-.welcome-text{
-    
-  text-align: center;
-  padding: 32px;
-  background-color: #42B6D4;
-    color: white;
+/* ----------------------------------------------------------------------------------- base.html */
+/* ----------------------------------------------------------- Header */
 
+header{
+    background-color: #770d56;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    background-repeat: no-repeat;
+   /*background: linear-gradient( rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.2)),
+    url('https://res.cloudinary.com/daqyuuzq9/image/upload/v1603644783/Copy_of_Galway_Charity_Projects_qjh5lx.png');*/
+}
+
+.logo-text{
+    color: #fff !important;
+    display: inline-block;
+    font-size: 4.28rem !important;
+    padding-left: 5%;
+    padding-top: 5%;
+    letter-spacing: 4px;
+    line-height: 130%;
+    font-weight:900;
+}
+
+/* ----------------------------------------------------------- Nav bar */
+
+.dropdown-content{
+    top:-60px;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: #770E56;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+    text-align: center;
+}
+
+
+/* ----------------------------------------------------------- Footer */
+
+.page-footer {
+    background-color: #770d56;
+    /*margin-top: 10%;*/
+}
+
+
+/* ----------------------------------------------------------------------------------- index.html */
+.welcome-text{
+  text-align: center;
+  padding: 131px 0px;
+  color: white;
+  background: linear-gradient( rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.2)),
+    url('https://res.cloudinary.com/daqyuuzq9/image/upload/v1603654124/Screenshot_2020-10-25_at_19.28.28_jjnwhq.png');
+  background-size: cover;
+  background-position: center;
 
 }
 
 
+.vol-card{
+background: linear-gradient( rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.2)),
+    url('https://res.cloudinary.com/daqyuuzq9/image/upload/v1603654276/Screenshot_2020-10-25_at_19.31.01_ypoxze.png');
+background-repeat: no-repeat;
+background-size: cover;
+border-radius:20px;
+}
+
+.char-card{
+background: linear-gradient( rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.2)),
+    url('https://res.cloudinary.com/daqyuuzq9/image/upload/v1603654276/Screenshot_2020-10-25_at_19.31.01_ypoxze.png');
+    background-repeat: no-repeat;
+background-size: cover;
+    border-radius:20px;
+}
 
 
 /* ----------------------------------------------------------- List View */
@@ -128,10 +196,15 @@ i.fas.fa-exclamation-circle.tooltipped {
 
 
 /* ----------------------------------------------------------- Cards */
-.fixed-height{
-    min-height:470px;
+
+.card-panel{
+    border-radius:20px;
 }
 
+.card.large .card-image {
+    max-height: 50%;
+    overflow: hidden;
+}
 .card-image-size{
      min-height:175px;
 }
@@ -145,15 +218,6 @@ i.fas.fa-exclamation-circle.tooltipped {
     bottom: 0px; 
 }
 
-
-
-
-/* ----------------------------------------------------------- Footer */
-
-.page-footer {
-    background-color: #770d56;
-    margin-top: 10%;
-}
 
 /* ----------------------------------------------------------- media queries */
 

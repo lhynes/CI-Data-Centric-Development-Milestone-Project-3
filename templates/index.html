@@ -1,78 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<!-- <div class="row">
-	<div class="col s12 m8 offset-m2">
-		<div class="card blue-grey darken-1">
-			<div class="card-content white-text center-align">
-				<span class="card-title">
-          <h1>Welcome to Galway Charity Projects</h1>
-          </span>
-			</div>
-		</div>
-	</div>
-</div> -->
-
-<!-- Welcome Message -->
-	<div class="welcome-text">
-		<h1>Welcome to Galway Charity Projects</h1>
-		<p>A home for all the great charity projects taking place in Galway, Ireland</p>
-		
-	</div>
-
-<!-- <div class="row">
-	<div class="col s12 m8 offset-m2">
-		<div class="card blue-grey darken-1">
-			<div class="card-content white-text center-align">
-				<span class="card-title">
-          <blockquote class="flow-text">
-      <h2>Static site overview description</h2>
-    </blockquote>
-  <blockquote class="flow-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Integer eget libero scelerisque, vehicula purus tristique
-    </blockquote>
-    <blockquote class="flow-text">
-          faucibus orci quis efficitur. Ut laoreet maximus placerat. Sed mi tellus, 
-          dictum et ornare sit amet, venenatis a ante. Ut urna nisl, vestibulum vel 
-          </blockquote>
-          </span>
-			</div>
-		</div>
-	</div>
-</div>-->
-<div class="container">
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card blue-grey darken-1 home-card-height">
-                <div class="card-content white-text center-align">
-                    <span class="card-title">
-            <h1>Volunteers</h1>
-            <p>here you can view all the  live projects </p>
-            <div class="card-action"> <a href="{{ url_for('get_projects') }}">View Projects</a> </div>
-            </span>
+    <!-- Welcome Message -->
+    <div class="welcome-text">
+        <h1>Let's Help Together</h1>
+        <h5>A home for all the great charity projects taking place in Galway, Ireland</h5>
+    </div>
+    <!-- Volunteer / Charity Cards -->
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 ">
+                <div class="card blue-grey darken-1 home-card-height vol-card hoverable">
+                    <div class="card-content white-text center-align">
+                        <span class="card-title">
+                <h1>Volunteers</h1>
+                <p>Check out all the latest projects </p>
+                <div class="card-action"> 
+                <a class="waves-effect waves-light btn-small" href="{{ url_for('get_projects') }}">View Projects</a>
+                </div>
+                </span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col s12 m6">
-            <div class="card blue-grey darken-1 home-card-height">
-                <div class="card-content white-text center-align">
-                    <span class="card-title">
-            <h1>Charities</h1>
-            <p>will direct to register page if not logged in? </p>
-            {% if session.user %}
-                <div class="card-action">  <a href="{{ url_for('create_project') }}">Create Projects</a></div>
-            {% else %}
-				<div class="card-action"><a href="{{ url_for('register') }}">Log In To Create Your Project</a></div>
-            {% endif %}
-            </span>
+            <div class="col s12 m6 ">
+                <div class="card blue-grey darken-1 home-card-height char-card hoverable">
+                    <div class="card-content white-text center-align">
+                        <span class="card-title">
+                <h1>Charities</h1>
+                
+                {% if session.user %}
+                    <p>Create a project today</p>
+                    <div class="card-action">  <a class="waves-effect waves-light btn-small" href="{{ url_for('create_project') }}">Create Projects</a></div>
+                {% else %}
+                    <p>Register today to get started</p>
+                    <div class="card-action">
+                    <a class="waves-effect waves-light btn-small" href="{{ url_for('login') }}">
+                    Log In To Create Your Project</a>
+                    </div>
+                {% endif %}
+                </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 
 
 {% endblock %}
