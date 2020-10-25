@@ -95,6 +95,14 @@ i.fas.fa-exclamation-circle.tooltipped {
 
 /* ----------------------------------------------------------- Flash Messages*/
 
+.flashcontainer{
+    width:50%;
+    margin:auto;
+}
+.flashrow{
+    margin-bottom:0px;
+}
+
 .flashes h4 {
     line-height: 2;
 }
@@ -149,6 +157,10 @@ header{
 }
 
 /* ----------------------------------------------------------- Nav bar */
+
+nav ul a {
+    font-size: 1.2rem;
+}
 
 .dropdown-content{
     top:-60px;
