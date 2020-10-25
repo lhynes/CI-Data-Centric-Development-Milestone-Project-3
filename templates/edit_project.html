@@ -1,10 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Edit Project</h3>
+<h3 class="center-align page-title">Edit Project</h3>
+
 <div class="container">
 	<div class="row card-panel grey lighten-5">
 		<form class="col s12" method="POST" action="{{ url_for('edit_project', project_id=project._id) }}">
+            <!-- Project Name -->
+            <div class="row">
+				<div class="input-field col s12">
+					<i class="fas fa-pencil-alt prefix"></i>
+					<input id="project_name" name="project_name" minlength="5" maxlength="50"
+                        value="{{ project.project_name }}" type="text" class="validate" required>
+					<label for="project_name">Project Name</label>
+				</div>
+			</div>
+
+            <!-- Project Overview -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="fas fa-align-left prefix"></i>
+                    <i class="fas fa-exclamation-circle tooltipped" data-position="right" data-tooltip="Please enter the tag line for your project to appear on the card (Maximum 80 characters)"></i>
+					<textarea id="porject_overview" name="porject_overview" minlength="5" maxlength="80" class="materialize-textarea validate" required>{{ project.project_name }}</textarea><label for="porject_overview">Project Overview</label>
+				</div>
+			</div>
+        
         <!-- Project Categories Selection -->
 			<div class="row">
 				<div class="input-field col s12">
@@ -24,27 +44,7 @@
 				</div>
 			</div>
 
-            <!-- Project Name -->
-            <div class="row">
-				<div class="input-field col s12">
-					<i class="fas fa-pencil-alt prefix"></i>
-					<input id="project_name" name="project_name" minlength="5" maxlength="50"
-                        value="{{ project.project_name }}" type="text" class="validate" required>
-					<label for="project_name">Project Name</label>
-				</div>
-			</div>
-
-            <!-- Project Overview -->
-			<div class="row">
-				<div class="input-field col s12">
-					<i class="fas fa-align-left prefix"></i>
-                    <i class="fas fa-exclamation-circle tooltipped"
-                        data-position="right" data-tooltip="Please enter the tag line for your project to appear on the card (Maximum 80 characters)"></i>
-					<textarea id="porject_overview" name="porject_overview" minlength="5"
-                        maxlength="80" class="materialize-textarea validate" required></textarea>
-					<label for="porject_overview">Project Overview</label>
-				</div>
-			</div>
+            
 
             <!-- Project Description -->
 			<div class="row">

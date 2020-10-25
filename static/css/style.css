@@ -238,6 +238,17 @@ background-size: cover;
     margin:auto;
 }
 
+/* ----------------------------------------------------------------------------------- edit_project.html */
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: red;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: red;
+}
+
+
 /* ----------------------------------------------------------- media queries */
 
 @media screen and (max-width:670px){
