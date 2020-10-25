@@ -1,3 +1,7 @@
+
+
+/* ----------------------------------------------------------- Header */
+
 header{
     /*background: url(https://user-images.githubusercontent.com/17083566/96911996-8cd12280-1499-11eb-9a44-fd8675133231.png);*/
     background: url(https://user-images.githubusercontent.com/17083566/96912450-521bba00-149a-11eb-89e5-0dff1b9cd002.png);
@@ -6,25 +10,29 @@ header{
     min-height: 500px; 
 }
 
+/* ----------------------------------------------------------- Fonts */
+
+
 .h1,h2,h3,h4,h5{
     color: #770d56;
 }
 
-/* nav bar */
+/* ----------------------------------------------------------- Colours */
+
+
+
+
+/* ----------------------------------------------------------- Nav bar */
 
 .dropdown-content{
     top:-60px;
 }
 
+/* ----------------------------------------------------------- icons */
 .fas{
     color: #770d56;
 }
 
-
-.page-footer {
-    background-color: #770d56;
-    margin-top: 10%;
-}
 
 i.fas.fa-exclamation-circle.tooltipped {
     left: 3%;
@@ -39,29 +47,11 @@ i.fas.fa-exclamation-circle.tooltipped {
     background-color: #770d56;
 }
 
+/* ----------------------------------------------------------- Flash Messages*/
 
 .flashes h4 {
     line-height: 2;
 }
-
-/* Cards */
-.fixed-height{
-    min-height:470px;
-}
-
-.card-image-size{
-     min-height:175px;
-}
-
-.home-card-height{
-    min-height: 340px;
-}
-
-.fixed-bottom{
-    position: absolute !important; 
-    bottom: 0px; 
-}
-
 
 .flashbox{
     padding:10px;
@@ -87,7 +77,42 @@ i.fas.fa-exclamation-circle.tooltipped {
     border-color: #f5c6cb;
 }
 
-/* @media queries*/
+
+/* ----------------------------------------------------------- List View */
+.listViewContainer{
+    width: 90%;
+}
+
+
+/* ----------------------------------------------------------- Cards */
+.fixed-height{
+    min-height:470px;
+}
+
+.card-image-size{
+     min-height:175px;
+}
+
+.home-card-height{
+    min-height: 340px;
+}
+
+.fixed-bottom{
+    position: absolute !important; 
+    bottom: 0px; 
+}
+
+
+
+
+/* ----------------------------------------------------------- Footer */
+
+.page-footer {
+    background-color: #770d56;
+    margin-top: 10%;
+}
+
+/* ----------------------------------------------------------- media queries */
 
 @media screen and (max-width:670px){
     header{

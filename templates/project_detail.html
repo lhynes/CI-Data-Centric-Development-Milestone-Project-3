@@ -82,23 +82,16 @@
                     </div>
                 </div>
 
-                <!-- Urgent swtich -->
+                <!-- Urgent Notice -->
                 <div class="row">
-                    <div class="input-field col s12">
-                        <div class="switch">
-                            <i class="fas fa-exclamation-circle prefix"></i>
-                            <label for="is_urgent">
-                                {% if project.is_urgent == "on" %}
-                                    <input type="checkbox" id="is_urgent" name="is_urgent" checked>
-                                {% else %}
-                                    <input type="checkbox" id="is_urgent" name="is_urgent">
-                                {% endif %}
-                                <span class="lever"></span>
-                                This Project Requires Urgent Support
-                            </label>
-                        </div>
-                    </div>
+                    {% if project.is_urgent == "on" %}
+                        <span class="center-align">
+						<i class="fas fa-exclamation-circle red-text text-darken-3 tooltipped"
+                        data-position="right" data-tooltip="This project needs urgent support!"> * Volunteers Really Needed *</i>
+						{% endif %}
                 </div>
+
+                <!-- Buttons Section -->
                 <div class=" valign-wrapper">
                     <div class="right">
                         <a href="{{ url_for('get_projects') }}"
