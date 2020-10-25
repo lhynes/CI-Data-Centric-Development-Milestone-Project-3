@@ -201,7 +201,8 @@ def delete_project(project_id):
 
 @app.route("/get_categories")
 def get_categories():
-    categories = list(mongo.db.project_categories.find().sort("project_category_name", 1))
+    categories = list(mongo.db.project_categories.find().sort("project_category_name"))
+    # categories = list(mongo.db.project_categories.find().sort("project_category_name", 1))
     return render_template("categories.html", categories=categories)
 
 

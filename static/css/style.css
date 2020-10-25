@@ -75,9 +75,22 @@ i.fas.fa-exclamation-circle.tooltipped {
     color:white;
 }
 
+/* side nav */
 .fa-bars:before {
     content: "\f0c9";
     color: white;
+}
+
+/* categories.html*/
+.fa-plus-square:before {
+    content: "\f0fe";
+    color: white;
+}
+
+/* create_category.html*/
+.fa-folder-open:before {
+    content: "\f07c";
+    color: #770d56;
 }
 
 /* ----------------------------------------------------------- Flash Messages*/
@@ -250,6 +263,17 @@ background-size: cover;
 
 .switch label input[type=checkbox]:checked+.lever:after {
     background-color: red;
+}
+
+/* ----------------------------------------------------------------------------------- categories.html */
+
+.category-card{
+    border-radius:20px;
+    background-color: #770d56;
+}
+
+.card .card-action:last-child {
+    border-radius: 20px;
 }
 
 
