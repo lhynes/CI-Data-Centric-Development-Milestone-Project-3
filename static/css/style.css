@@ -187,6 +187,13 @@ background-size: cover;
     border-radius:20px;
 }
 
+/* ----------------------------------------------------------------------------------- projects.html */
+
+.search{
+    width: 50%;
+    margin: 20px auto
+}
+
 
 /* ----------------------------------------------------------- List View */
 .listViewContainer{
@@ -218,6 +225,18 @@ background-size: cover;
     bottom: 0px; 
 }
 
+
+/* ----------------------------------------------------------------------------------- project_detail.html */
+
+
+.curved-image{
+    border-radius:25px;
+}
+
+.listViewContainer-detail{
+    width:60%;
+    margin:auto;
+}
 
 /* ----------------------------------------------------------- media queries */
 

@@ -2,149 +2,101 @@
 {% block content %}
 
 
-    
+    <h3 class="center-align text-shadow page-title">Project Details</h3>
 
-    <!-- <div class="listViewContainer ">
-        <div class="row bg-black">
-            <div class="col-5 text-center p-0 my-auto" >
-                <img src="{{ project.project_img_url }}" alt="" />
-        </div>
-            <div class="col-7 my-auto pl-0">
-                <div class="recipe-heading d-flex align-items-center">
-                    <h2 class="text-white d-none d-lg-block text-capitalize mx-auto">
-                        {{ project.project_name }}
-                    </h2>
-                    <h4 class="text-white d-block d-lg-none text-capitalize mx-auto">
-                        {{ project.project_name }}
-                    </h4>
+    <div class="listViewContainer-detail">
+        <div class="row">
+            <div class="col ">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                    <!-- Project Image and Name  -->
+                    <div class="row valign-wrapper">
+                        <div class="col s12 m6">
+                            <h3 class="center-align text-shadow page-title">{{ project.project_name }}</h3>
+                        </div>
+                        <div class="col s12 m6">
+                            <img src="{{ project.project_img_url }}" onerror="this.src='/static/images/default.pmg'" alt="{{ project.project_name }}" class="curved-image responsive-img">
+                        </div>
+                    </div>
+                    <!-- Project Detials -->
+                    <div method="POST" action="{{ url_for('project_detail', project_id=project._id) }}">
+
+                        <!-- Project Name -->
+                        <div class="row">
+                            <div class="col">
+                            <i class="fas fa-tag prefix"></i>
+                            Project Name: {{ project.project_name }}
+                            </div>
+                        </div>
+                        <!-- Project Categories Selection -->
+                        <div class="row">
+                            <div class="col">
+                            <i class="fas fa-folder-open prefix"></i>
+                            Project Category: {{ project.project_category_name }}
+                            </div>
+                        </div>
+                        <!-- Project Overview -->
+                        <div class="row">
+                            <div class="col">
+                            <i class="fas fa-align-left prefix"></i>
+                            Project Overview: {{ project.project_overview }}
+                            </div>
+                        </div>
+                        <!-- Project Description -->
+                        <div class="row">
+                            <div class="col">
+                            <i class="fas fa-align-justify prefix"></i>
+                            Project Description: {{ project.project_description }}
+                            </div>
+                        </div>
+                        <!-- Project Date -->
+                        <div class="row">
+                            <div class="col">
+                            <i class="fas fa-calendar-alt prefix"></i>
+                            Project Date: {{ project.project_date }}
+                            </div>
+                        </div>
+                        <!-- Urgent Notice -->
+                        <div class="row">
+                            {% if project.is_urgent == "on" %}
+                                <span class="center-align">
+                                <i class="fas fa-exclamation-circle red-text text-darken-3 tooltipped"
+                                data-position="right" data-tooltip="This project needs urgent support!"> * Volunteers Really Needed *</i></span>
+                            {% endif %}
+                        </div>
+
+                    <!-- Buttons Section -->
+                    <div class="row right-align">
+                        <div class=" col">
+                            <a href="{{ url_for('get_projects') }}"
+                                class="waves-effect waves-light btn-small"><i class="material-icons left">keyboard_return</i>Back to projects</a>
+                            {% if session.user|lower == project.created_by|lower %}
+                                <a href="{{ url_for('edit_project', project_id=project._id) }}"
+                                    class="waves-effect waves-light blue btn-small"><i class="material-icons left">edit</i>Edit</a>
+                                <!-- Modal Trigger -->
+                                <a href="#modal1"
+                                    class="waves-effect waves-light red text-shadow btn-small modal-trigger"><i class="material-icons left">done</i>Complete</a>
+                                    <!-- Modal Structure -->
+                                <div id="modal1" class="modal">
+                                    <div class="modal-content">
+                                        <h4>{{ project.project_name }}</h4>
+                                        <p>Are you sure you want to delete this project? </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{{ url_for('project_detail', project_id=project._id) }}" class="modal-close waves-effect waves-green btn-flat">Don't Delete</a>
+                                        <a href="{{ url_for('delete_project', project_id=project._id) }}" class="modal-close waves-effect waves-green btn-flat">Confirm</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- END Buttons Section -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>-->
-
-
-    <div class="container">
-        <div class="row card-panel grey lighten-5">
-            <div class="col s12" method="POST" action="{{ url_for('project_detail', project_id=project._id) }}">
-            <!-- Project Categories Selection -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-folder-open prefix"></i>
-                        
-                        <select id="project_category_name" name="project_category_name" class="validate" required>
-                            <option value="" disabled>Choose Project Category</option>
-                            {% for category in categories %}
-                                {% if category.project_category_name == project.project_category_name %}
-                                    <option value="{{ category.project_category_name }}" selected>{{ category.project_category_name }}</option>
-                                {% else %}
-                                    <option value="{{ category.project_category_name }}">{{ category.project_category_name }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                        <label for="project_category_name">Project Category</label>
-                    </div>
-                </div>
-
-                <!-- Project Name -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-pencil-alt prefix"></i>
-                        <input id="project_name" name="project_name" minlength="5" maxlength="50"
-                            value="{{ project.project_name }}" type="text" class="validate" required>
-                        <label for="project_name">Project Name</label>
-                    </div>
-                </div>
-
-                <!-- Project Overview -->
-			<div class="row">
-				<div class="input-field col s12">
-					<i class="fas fa-align-left prefix"></i>
-                    <i class="fas fa-exclamation-circle tooltipped"
-                        data-position="right" data-tooltip="Please enter the tag line for your project to appear on the card (Maximum 80 characters)"></i>
-					<textarea id="porject_overview" name="porject_overview" minlength="5"
-                        maxlength="80" class="materialize-textarea validate" required></textarea>
-					<label for="porject_overview">Project Overview</label>
-				</div>
-			</div>
-
-                <!-- Project Description -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-align-left prefix"></i>
-                        <i class="fas fa-exclamation-circle tooltipped"
-                            data-position="right" data-tooltip="Please enter a short description of your project (Maximum 200 characters)"></i>
-                        <textarea id="project_description" name="project_description" minlength="5"
-                            maxlength="200" class="materialize-textarea validate" required>{{ project.project_description }}</textarea>
-                        <label for="project_description">Project Description</label>
-                    </div>
-                </div>
-
-                <!-- Project Image URL -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-image prefix"></i>
-                        <i class="fas fa-exclamation-circle tooltipped"
-                            data-position="right" data-tooltip="Please enter a url for your image"></i>
-                        <textarea id="project_img_url" name="project_img_url" value="https://placehold.it/700x400" minlength="5"
-                            maxlength="200" class="materialize-textarea validate">{{ project.project_img_url }}</textarea>
-                        <label for="project_img_url">Project Image URL</label>
-                    </div>
-                </div>
-
-                <!-- Project Date -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-calendar-alt prefix"></i>
-                        <input id="project_date" name="project_date" type="text" 
-                        value= "{{ project.project_date }}" class="datepicker validate" required>
-                        <label for="project_date">Project Date</label>
-                    </div>
-                </div>
-
-                <!-- Urgent Notice -->
-                <div class="row">
-                    {% if project.is_urgent == "on" %}
-                        <span class="center-align">
-						<i class="fas fa-exclamation-circle red-text text-darken-3 tooltipped"
-                        data-position="right" data-tooltip="This project needs urgent support!"> * Volunteers Really Needed *</i>
-						{% endif %}
-                </div>
-
-                <!-- Buttons Section -->
-                <div class=" valign-wrapper">
-                    <div class="right">
-                        <a href="{{ url_for('get_projects') }}"
-                            class="waves-effect waves-light btn-small"><i class="material-icons left">keyboard_return</i>Back to projects</a>
-                        {% if session.user|lower == project.created_by|lower %}
-                            <a href="{{ url_for('edit_project', project_id=project._id) }}"
-                                class="waves-effect waves-light btn-small"><i class="material-icons left">edit</i>Edit</a>
-                            <!-- Modal Trigger -->
-                            <a href="#modal1"
-                                class="waves-effect waves-light red text-shadow btn-small modal-trigger"><i class="material-icons left">done</i>Complete</a>
-                                <!-- Modal Structure -->
-                            <div id="modal1" class="modal">
-                                <div class="modal-content">
-                                <h4>{{ project.project_name }}</h4>
-                                <p>Are you sure you want to delete this project? </p>
-                                </div>
-                                <div class="modal-footer">
-                                <a href="{{ url_for('project_detail', project_id=project._id) }}" class="modal-close waves-effect waves-green btn-flat">Don't Delete</a>
-                                <a href="{{ url_for('delete_project', project_id=project._id) }}" class="modal-close waves-effect waves-green btn-flat">Confirm</a>
-                                </div>
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-
-  
-
-
-
-
-
-        </div>
     </div>
-
-
+       
+        
+  
 
 {% endblock %}

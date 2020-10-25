@@ -1,17 +1,17 @@
 {% extends "base.html" %} 
 {% block content %}
 
-<h3 class="center-align text-shadow">All Projects</h3>
+<h3 class="center-align text-shadow page-title">All Projects</h3>
 
 <div class="listViewContainer">
     <div class="row card-panel search">
         <form action="{{ url_for('search') }}" method="POST" class="col m12 s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
-                    <input placeholder="Project Name" type="text" name="query" id="query" minlength="3" class="validate" required />
+                    <input placeholder="enter serach word here" type="text" name="query" id="query" minlength="3" class="validate" required />
                     <label for="query">Search Projects</label>
                 </div>
-                <div class="col">
+                <div class="col s12 m4">
                     <button type="submit" class="btn-flat neutral text-shadow">
                         Search
                     </button>
@@ -45,7 +45,7 @@
                     {% endif %} 
                 </div>
                 <div class="card-action col s12 minimalist center-align" style="border-top-width: 0px;">
-                    <a href="{{url_for('project_detail', project_id=project._id)}}" class="btn neutral">Find out more</a>
+                    <a href="{{ url_for('project_detail', project_id=project._id) }}" class="waves-effect waves-light btn-small"><i class="material-icons right">arrow_forward</i>Find out more</a>
                 </div>
             </div>
         </div>
