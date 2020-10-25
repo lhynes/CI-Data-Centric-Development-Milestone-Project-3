@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<!--    Error page      -->
+<!--    Reference: https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/  -->
+    <div class="container">
+        <div class="row center-align">
+<!--    Image section    -->
+            <img alt="403" class="error-image"
+                src="{{ url_for('static', filename='images/403.png') }}">
+
+
+<!--    Message section    -->
+            <div class="col-12">
+                <div class="center error-message">
+                     <h1>
+                       Oh, not allowed here! 
+                    </h1>
+                    <h4>
+                        Please use the menu to get back to home page
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

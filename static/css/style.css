@@ -276,6 +276,18 @@ background-size: cover;
     border-radius: 20px;
 }
 
+/* ----------------------------------------------------------------------------------- categories.html */
+
+.error-image {
+    margin: auto;
+}
+
+.error-message {
+    margin: auto;
+    width: 100%;
+    color:#770d56;
+}
+
 
 /* ----------------------------------------------------------- media queries */
 
