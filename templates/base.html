@@ -41,7 +41,7 @@
 		<nav class="nav-wrapper nav-extended text-shadow transparent">
 				<a href="{{ url_for('index') }}" class="brand-logo text-shadow">
                 <div class="valign-wrapper">
-                <span class="text-shadow logo-text valign-wrapper"> Galway </br> Charity </br>Projects </span>
+                <span class="text-shadow logo-text valign-wrapper"> Galway </br> Charity </br> Projects </span>
                 </div>
                 </a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -62,7 +62,7 @@
        
 
 		    <ul class="sidenav" id="mobile-demo">
-			<li><h4 class="center-align light-blue-text text-darken 4">Galway Charity Projects</h4></li>
+			<li><h4 class="center-align page-title">Galway Charity Projects</h4></li>
 			    <li><a href="{{ url_for('index') }}">Home</a></li>
 					<li><a href="{{ url_for('get_projects') }}">Find Projects</a></li>
                     {% if session.user|lower == "admin"|lower %}

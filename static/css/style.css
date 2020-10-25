@@ -75,6 +75,10 @@ i.fas.fa-exclamation-circle.tooltipped {
     color:white;
 }
 
+.fa-bars:before {
+    content: "\f0c9";
+    color: white;
+}
 
 /* ----------------------------------------------------------- Flash Messages*/
 
