@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
 		type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 	{% block styles %}
 	{% endblock %}
@@ -19,7 +20,6 @@
 
 <body>
 	<header>
-    
         <ul id="dropdown1" class="dropdown-content">
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
@@ -38,10 +38,15 @@
                 <li><a href="{{ url_for('register') }}">Register Your Charity</a></li>
             {% endif %}
         </ul>
-		<nav class="nav-wrapper nav-extended transparent">
-				<a href="{{ url_for('index') }}" class="brand-logo">Galway Chartiy Projects</a>
+		<nav class="nav-wrapper nav-extended text-shadow transparent">
+				<a href="{{ url_for('index') }}" class="brand-logo text-shadow">
+                <div class="valign-wrapper">
+                <span class="text-shadow logo-text valign-wrapper"> Galway </br> Charity </br>Projects </span>
+                </div>
+                </a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
 					<li><a href="{{ url_for('get_projects') }}">Find Projects</a></li>
                     {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('get_categories') }}">Project Categories</a></li>
@@ -57,8 +62,8 @@
        
 
 		    <ul class="sidenav" id="mobile-demo">
-			<li><h4 class="center-align light-blue-text text-darken 4">Galway Chartiy Projects</h4></li>
-			<li><a href="{{ url_for('index') }}">Home</a></li>
+			<li><h4 class="center-align light-blue-text text-darken 4">Galway Charity Projects</h4></li>
+			    <li><a href="{{ url_for('index') }}">Home</a></li>
 					<li><a href="{{ url_for('get_projects') }}">Find Projects</a></li>
                     {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('get_categories') }}">Project Categories</a></li>

@@ -1,13 +1,27 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
 
 /* ----------------------------------------------------------- Header */
 
 header{
-    /*background: url(https://user-images.githubusercontent.com/17083566/96911996-8cd12280-1499-11eb-9a44-fd8675133231.png);*/
-    background: url(https://user-images.githubusercontent.com/17083566/96912450-521bba00-149a-11eb-89e5-0dff1b9cd002.png);
+    background-color: #770d56;
     background-size: cover;
     background-position: center;
-    min-height: 500px; 
+    min-height: 300px;
+    background-repeat: no-repeat;
+   /*background: linear-gradient( rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.2)),
+    url('https://res.cloudinary.com/daqyuuzq9/image/upload/v1603644783/Copy_of_Galway_Charity_Projects_qjh5lx.png');*/
+}
+
+.logo-text{
+    color: #fff !important;
+    display: inline-block;
+    font-size: 4.28rem !important;
+    padding-left: 5%;
+    padding-top: 5%;
+    letter-spacing: 4px;
+    line-height: 130%;
+    font-weight:900;
 }
 
 /* ----------------------------------------------------------- Fonts */
@@ -15,7 +29,22 @@ header{
 
 .h1,h2,h3,h4,h5{
     color: #770d56;
+    font-family: 'Roboto', sans-serif;
 }
+
+/*h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    color: #525252;
+    font-family: 'Oswald', sans-serif;
+}
+
+p{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+}*/
 
 /* ----------------------------------------------------------- Colours */
 
@@ -77,10 +106,24 @@ i.fas.fa-exclamation-circle.tooltipped {
     border-color: #f5c6cb;
 }
 
+/* ----------------------------------------------------------- index.html */
+.welcome-text{
+    
+  text-align: center;
+  padding: 32px;
+  background-color: #42B6D4;
+    color: white;
+
+
+}
+
+
+
 
 /* ----------------------------------------------------------- List View */
 .listViewContainer{
     width: 90%;
+    margin: auto;
 }
 
 

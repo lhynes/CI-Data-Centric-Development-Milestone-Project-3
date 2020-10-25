@@ -28,14 +28,25 @@ def index():
 def get_projects():
     projects = mongo.db.projects.find()
     return render_template("projects.html", projects=projects)
-    
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     projects = list(mongo.db.projects.find({"$text": {"$search": query}}))
     return render_template("projects.html", projects=projects)
-    
+
+"""@app.route("/search", methods=["GET", "POST"])
+def search():
+    if request.method == "POST": 
+        query = request.form.get("query") 
+        if not query: 
+            projects = mongo.db.projects.find() 
+            return render_template("projects.html", projects=projects) 
+        else: 
+            projects = list(mongo.db.projects.find({"$text": {"$search": query}})) 
+            return render_template("projects.html", projects=projects) 
+    else: 
+        return render_template("projects.html", projects=projects)"""
 
 @app.route("/register", methods=["GET", "POST"])
 def register():

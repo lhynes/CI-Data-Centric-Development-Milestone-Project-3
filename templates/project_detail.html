@@ -2,8 +2,37 @@
 {% block content %}
 
 
-    <h2>Project Detail page</h2>
     
+	<div class="listViewContainer ">
+		<div class="row">
+			<div class="col s12">
+				
+			</div>
+			<div class="col s4">
+				<img src="{{ project.project_img_url }}" alt="Girl in a jacket"></div>
+			<div class="col s8">
+				<h2 class="center-align">{{ project.project_name }}</h2>
+		</div>
+	</div>
+    <div class="listViewContainer ">
+        <div class="row bg-black">
+            <div class="col-5 text-center p-0 my-auto" >
+                <img src="{{ project.project_img_url }}" alt="" />
+        </div>
+            <div class="col-7 my-auto pl-0">
+                <div class="recipe-heading d-flex align-items-center">
+                    <h2 class="text-white d-none d-lg-block text-capitalize mx-auto">
+                        {{ project.project_name }}
+                    </h2>
+                    <h4 class="text-white d-block d-lg-none text-capitalize mx-auto">
+                        {{ project.project_name }}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
         <div class="row card-panel grey lighten-5">
             <div class="col s12" method="POST" action="{{ url_for('project_detail', project_id=project._id) }}">

@@ -2,6 +2,7 @@ $(document).ready(function(){
     $(".sidenav").sidenav({edge: "right"});
     $(".dropdown-trigger").dropdown();
     $(".tooltipped").tooltip();
+    $('.tabs').tabs();
     $("select").formSelect();
     $('.modal').modal();
     $("flash").parent().remove();
