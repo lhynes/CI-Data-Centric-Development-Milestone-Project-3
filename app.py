@@ -26,7 +26,7 @@ def index():
 
 @app.route("/get_projects")
 def get_projects():
-    projects = mongo.db.projects.find()
+    projects = list(mongo.db.projects.find())
     return render_template("projects.html", projects=projects)
 
 @app.route("/search", methods=["GET", "POST"])
@@ -201,8 +201,7 @@ def delete_project(project_id):
 
 @app.route("/get_categories")
 def get_categories():
-    categories = list(mongo.db.project_categories.find().sort("project_category_name"))
-    # categories = list(mongo.db.project_categories.find().sort("project_category_name", 1))
+    categories = list(mongo.db.project_categories.find().sort("project_category_name", 1))
     return render_template("categories.html", categories=categories)
 
 
