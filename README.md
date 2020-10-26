@@ -261,15 +261,14 @@ Future features may include but not limted to:
 2. **Project Detail Page** - Create project sign up to sync with Charities DB
 3. **Project List Page** - Pagination
 
-   
+<br>
 
 ## Technologies Used
 
 
 ### Coding Languages
 - This project uses the following languages:
-    - [Python](https://www.python.org)
-        - Flask,flask_pymongo, bson.objectid, werkzeug.security
+    - [Python](https://www.python.org) - Flask,flask_pymongo, bson.objectid, werkzeug.security
     - [BSON](https://www.mongodb.com/json-and-bson)
     - [JQuery](https://jquery.com) - The project uses **JQuery** to simplify DOM manipulation.
     - [HTML5](https://www.w3schools.com/html/) - Semantic markup language.
@@ -288,31 +287,124 @@ Future features may include but not limted to:
     - [Materialize](https://materializecss.com/) - The project uses **Materialize** as design framework to simplify the structure of the website and make the website responsive easily.
     - [Google Fonts](https://fonts.google.com/) - The project uses **Google fonts** to style the website fonts.
     - [Font Awesome](https://fontawesome.com/changelog/latest) - Icons are primarily sourced from Font Awesome
-    - [Canva](https://www.canva.com/)-This project used tools in **Canva** to edit, crop and save images. 
-        - **Canva** was also used to source all imagery and design of banner, logo and tile elements. 
+    - [Canva](https://www.canva.com/) - This project used tools in **Canva** to edit, crop and save images. **Canva** was also used to source all imagery and design of banner, logo and tile elements. 
     - [Colour picker](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) was also used to ensure color consistency over the entire project. 
 
+<br>
 
 ## Testing 
 
-### Site UI/UX 
 
-- Manual testing was carried out on this site by the developers family members to review the UX and site responsivness
-- Chrome dev tools were used to review responsivness on multiple device sizes
-- 
+### **Feature Testing**
 
-### Error pages
 
-The 404 error page with by entering in incorrect URL path and clicking the links on the 404 page to make sure they redirected correctly. 
+#### Volunteer User Story - Non Session User
 
-### Code Validators
+##### *View Projects*
+- Launch Site via URL - https://galway-charity-projects.herokuapp.com/
+    - **Option 1** - Click the *Find Projects* link from the navigation menu
+    - **Option 2** - Click the *View Projects* link from the navigation menu
+
+
+
+#### Charity User Story
+
+##### *Register Charity*
+
+##### *Login*
+
+##### *Projects Create*
+
+##### *Projects Read*
+
+##### *Projects Edit/Update*
+
+##### *Projects Delete*
+
+
+
+##### *Projects (CRUD)*
+
+
+##### *View Projects*
+#### Admin User Story
+
+##### *Login*
+
+##### Project Category Create
+
+##### *Project-Category Create*
+
+##### *Project-Category Read*
+
+##### *Project-Category Edit/Update*
+
+##### *Project-Category Delete*
+
+#### *Registration*
+
+### Defensive Design Testing
+
+Features have been designed with the consideration to the session user. 
+
+
+
+Wrong password entered when logging in 
+✔️ returns flash "Incorrect Username and/or Password" to ensure that the non-registered user does not guess one or the other if the incorrect entry is provided.
+Duplicate username registration attempt 
+✔️ returns flash "Username already exists
+Wrong username entered when logging in 
+✔️ returns flash "Incorrect Username and/or Password" to ensure that the non-registered user does not guess one or the other if the incorrect entry is provided.
+Attempt to access "/add_category" by non Administrator 
+link for testing: http://keto-cookbook.herokuapp.com/add_category
+✔️ renders About page if user in session but user is not "Administrator" ✔️ renders Login page if user is not in session
+Attempt to access "/get_categories" by non Administrator 
+link for testing: http://keto-cookbook.herokuapp.com/get_categories
+✔️ renders About page if user in session but user is not "Administrator" ✔️ renders Login page if user is not in session
+Attempt to access "/edit_category/category_id" by non Administrator
+link for testing: http://keto-cookbook.herokuapp.com/edit_category/5f6a00eadda48a7a60562ada (category_id as example)
+✔️ renders About page if user in session but user is not "Administrator" ✔️ renders Login page if user is not in session
+Attempt to access "/delete_category/category_id" by non Administrator
+link for testing: http://keto-cookbook.herokuapp.com/delete_category/5f6a00eadda48a7a60562ada (category_id as example)
+✔️ renders About page if user in session but user is not "Administrator" ✔️ renders Login page if user is not in session
+As non-logged on user attempt to access "/edit_profile/username" 
+link for testing: http://keto-cookbook.herokuapp.com/edit_profile/marie
+✔️ renders Login page if user is not in session
+
+As non-logged on user attempt to access "/profile/username" Login
+link for testing: http://keto-cookbook.herokuapp.com/profile/marie
+✔️ renders Login page if user is not in session
+
+As non-logged on user attempt to access "/wisemen" Login
+link for testing: http://keto-cookbook.herokuapp.com/wisemen
+✔️ renders Login page if user is not in session
+
+As non-logged on user attempt to access "/add_recipe"
+link for testing: http://keto-cookbook.herokuapp.com/add_recipe
+✔️ renders Login page if user is not in session
+
+As non-logged on user attempt to access "/edit_recipe"
+link for testing: http://keto-cookbook.herokuapp.com/edit_recipe/5f844c38884d26d0d8bd3aac%29
+✔️renders Login page if user is not in session
+### **Code Validators**
 
 To ensure all code was clean, bug free and most importantly for python PEP8 compliant the following validators were used on the site: 
 
-[W3C HTML validator](https://validator.w3.org/) to validate CSS code
-[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS code
-[JSHint](https://jshint.com) to validate jQuery Code
-[PEP8 Validator](http://pep8online.com/) to validate Python code
+- [W3C HTML validator](https://validator.w3.org/) to validate CSS code
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS code
+- [JSHint](https://jshint.com) to validate jQuery Code
+- [PEP8 Validator](http://pep8online.com/) to validate Python code
+
+### **Site UI/UX & Browser Compatibility Testing**
+
+- Manual testing was carried out on this site by the developers family members to review the UX and site responsivness
+- Chrome dev tools were used to review responsivness on multiple device sizes
+- Cross browswer testing was also attempted on chrome and safari
+
+### **Error pages**
+
+- The 404 error page was tested manually by entering in incorrect URL pat
+- The links on the 404 page were tested by clicking and checking they redirected correctly. 
 
 
 
