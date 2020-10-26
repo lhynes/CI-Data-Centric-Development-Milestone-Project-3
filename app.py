@@ -17,12 +17,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-def is_valid_id(id,model):
+
+def is_valid_id(id, model):
     try:
         model.find_one({"_id": ObjectId(id)})
         return True
     except:
         return False
+
 
 @app.route("/")
 @app.route("/index")
@@ -35,24 +37,13 @@ def get_projects():
     projects = list(mongo.db.projects.find())
     return render_template("projects.html", projects=projects)
 
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     projects = list(mongo.db.projects.find({"$text": {"$search": query}}))
     return render_template("projects.html", projects=projects)
 
-"""@app.route("/search", methods=["GET", "POST"])
-def search():
-    if request.method == "POST": 
-        query = request.form.get("query") 
-        if not query: 
-            projects = mongo.db.projects.find() 
-            return render_template("projects.html", projects=projects) 
-        else: 
-            projects = list(mongo.db.projects.find({"$text": {"$search": query}})) 
-            return render_template("projects.html", projects=projects) 
-    else: 
-        return render_template("projects.html", projects=projects)"""
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -68,15 +59,15 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "charity_overview": request.form.get("charity_overview").lower(),
-            "charity_registration_number": request.form.get(
-            "charity_registration_number").lower(),
+            "charity_registration_number":
+            request.form.get("charity_registration_number").lower(),
             "charity_website": request.form.get("charity_website"),
             "charity_logo": request.form.get("charity_logo"),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
-         # put the new user into 'session' cookie
+        # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!", "success")
         return redirect(url_for("index", username=session["user"]))
@@ -93,13 +84,11 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "index", username=session["user"]))
+            if check_password_hash(existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for("index", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password", "danger")
@@ -111,13 +100,13 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-    
+
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
-        {"username": session["user"]}) # removed ["username"] from end and will show on profile page
+        {"username": session["user"]})
     if session["user"]:
         return render_template("profile.html", username=username)
 
@@ -154,14 +143,12 @@ def create_project():
     return render_template("create_project.html", categories=categories)
 
 
-
-
 @app.route("/project_detail/<project_id>", methods=["GET", "POST"])
 def project_detail(project_id):
-    if is_valid_id(project_id,mongo.db.projects):
+    if is_valid_id(project_id, mongo.db.projects):
         if request.method == "POST":
             is_urgent = "on" if request.form.get("is_urgent") else "off"
-            detail = {
+            project = {
                 "project_category_name": request.form.get("project_category_name"),
                 "project_name": request.form.get("project_name"),
                 "project_overview": request.form.get("project_overview"),
@@ -176,37 +163,44 @@ def project_detail(project_id):
         categories = mongo.db.project_categories.find().sort("project_category_name", 1)
         return render_template("project_detail.html", project=project, categories=categories)
 
-    else: 
+    else:
         return render_template("404.html")
+
 
 @app.route("/edit_project/<project_id>", methods=["GET", "POST"])
 def edit_project(project_id):
-    if request.method == "POST":
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
-        edit = {
-            "project_category_name": request.form.get("project_category_name"),
-            "project_name": request.form.get("project_name"),
-            "project_overview": request.form.get("project_overview"),
-            "project_description": request.form.get("project_description"),
-            "project_img_url": request.form.get("project_img_url"),
-            "is_urgent": is_urgent,
-            "project_date": request.form.get("project_date"),
-            "created_by": session["user"]
-        }
-        mongo.db.projects.update({"_id": ObjectId(project_id)}, edit)
-        flash("Project Successfully Updated", "success")
-        return redirect(url_for("get_projects"))
+    if is_valid_id(project_id, mongo.db.projects):
+        if request.method == "POST":
+            is_urgent = "on" if request.form.get("is_urgent") else "off"
+            edit = {
+                "project_category_name": request.form.get("project_category_name"),
+                "project_name": request.form.get("project_name"),
+                "project_overview": request.form.get("project_overview"),
+                "project_description": request.form.get("project_description"),
+                "project_img_url": request.form.get("project_img_url"),
+                "is_urgent": is_urgent,
+                "project_date": request.form.get("project_date"),
+                "created_by": session["user"]
+            }
+            mongo.db.projects.update({"_id": ObjectId(project_id)}, edit)
+            flash("Project Successfully Updated", "success")
+            return redirect(url_for("get_projects"))
 
-    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
-    categories = mongo.db.project_categories.find().sort("project_category_name", 1)
-    return render_template("edit_project.html", project=project, categories=categories)
+        project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+        categories = mongo.db.project_categories.find().sort("project_category_name", 1)
+        return render_template("edit_project.html", project=project, categories=categories)
+    else:
+        return render_template("404.html")
 
 
 @app.route("/delete_project/<project_id>")
 def delete_project(project_id):
-    mongo.db.projects.remove({"_id": ObjectId(project_id)})
-    flash("Project Complete", "success")
-    return redirect(url_for("get_projects"))
+    if is_valid_id(project_id, mongo.db.projects):
+        mongo.db.projects.remove({"_id": ObjectId(project_id)})
+        flash("Project Complete", "success")
+        return redirect(url_for("get_projects"))
+    else:
+        return render_template("404.html")
 
 
 @app.route("/get_categories")
@@ -230,31 +224,44 @@ def create_category():
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
-    if request.method == "POST":
-        submit = {
-            "project_category_name": request.form.get("project_category_name")
-        }
-        mongo.db.project_categories.update(
-            {"_id": ObjectId(category_id)}, submit)
-        flash("Category Successfully Updated", "success")
-        return redirect(url_for("get_categories"))
+    if is_valid_id(category_id, mongo.db.category_id):
+        if request.method == "POST":
+            submit = {
+                "project_category_name": request.form.get("project_category_name")
+            }
+            mongo.db.project_categories.update(
+                {"_id": ObjectId(category_id)}, submit)
+            flash("Category Successfully Updated", "success")
+            return redirect(url_for("get_categories"))
 
-    category = mongo.db.project_categories.find_one(
-        {"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category)
+        category = mongo.db.category_id.find_one(
+            {"_id": ObjectId(category_id)})
+        return render_template("edit_category.html", category=category)
+    else:
+        return render_template("404.html")
 
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.project_categories.remove({"_id": ObjectId(category_id)})
-    flash("Category Successfully Deleted", "success")
-    return redirect(url_for("get_categories"))
+    if is_valid_id(category_id, mongo.db.category_id):
+        mongo.db.project_categories.remove({"_id": ObjectId(category_id)})
+        flash("Category Successfully Deleted", "success")
+        return redirect(url_for("get_categories"))
+    else:
+        return render_template("404.html")
+
+
+"""Error handling - reference -
+https://www.geeksforgeeks.org/python-404-error-handling-in-flask/#:~:
+text=A%20404%20Error%20is%20showed,the%20default%20Ugly%20Error%20page."""
 
 
 # Error 403 handler route
+# app name
 @app.errorhandler(403)
+# inbuilt function which takes error as parameter
 def forbidden(e):
-
+    # defining function
     return render_template('403.html'), 403
 
 
