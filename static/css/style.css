@@ -320,4 +320,13 @@ background-size: cover;
     header{
         min-height:250px;
     }
+    .search{
+        width:100%;
+    }
+}
+@media screen and (max-width:360px){
+
+    .row.card-panel.search{
+        width:100%;
+    }
 }
