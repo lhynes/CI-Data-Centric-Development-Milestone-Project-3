@@ -3,9 +3,7 @@
 <h1 align="center">
   <a href="https://galway-charity-projects.herokuapp.com/" target="_blank"><img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603642648/Galway_Charity_Projects_youzgg.png" alt="Galway Charity Projects"/></a>
 </h1>
-<div align="center"> 
-<img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603730801/favicon-32x32_owefug.png" alt="Galway Charity Projects"/>
-</div>
+git 
 <h2 align="center">
 Galway Charity Prjects(GCP) - A home for Galway's volunteering community to come together to support local charities. 
 </h2>
@@ -66,7 +64,7 @@ The primary goal of Galway Charity Projects (GCP) is to provide a clean, intuiti
 
 GCP has two target audiences: Local charities and the local community/volunteers looking to support. 
 
-#### Charity Goals
+### Charity Goals
 
 Local charities want and need project support: 
 - They want to get their message out there about the projects they have live and need support on. 
@@ -82,7 +80,7 @@ GCP can help local charities owners because:
 
 
 
-#### Volunteer goals
+### Volunteer goals
 
 People want to make the extra effort to support local where they can and give back to the community and volunteering is a great way to do this but 
 sometimes they might not always be aware of the different opportunities and projects in their area. 
@@ -99,13 +97,13 @@ GCP can help meet the needs of the community because:
 - It displays in an engaging and simple way.
 - It has been designed with user experience as a priority to easily guide them through the site 
 
-#### Developer and Business Goals
+### Developer and Business Goals
 
 - A well designed directory of charity projects that strives to have a positive imact on the community. 
 - Good and clean programming that is robust and scaleable with the increase of cities and charities joining. 
 - A professional looking first attempt of using python, flask, materialize which the developer is excited to make a part of her portfolio and continue to develop in the future
 
-#### User Stories
+### User Stories
 
 As a charity owner, I want:
 1. To register my charity
@@ -123,7 +121,7 @@ As an admin user, I want:
 
 
 
-#### Design Choices
+### Design Choices
 
 The overall feel of the site is one that is visually appealing and simple to follow. The following design choices were made with this in mind:
 
@@ -156,7 +154,7 @@ A basic pallet was chosen to ensure the infomration on the page was the main foc
 
 
 
-#### Wireframes
+### Wireframes
 
 During the early part of the project wireframes were created using pen and paper and on [Pages](https://www.apple.com/pages/). 
 
