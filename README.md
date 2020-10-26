@@ -285,23 +285,21 @@ Future features may include but not limted to:
 
 - UI/UX This project uses the following Frameworks and sites to support the Design:
 
-- [Materialize](https://materializecss.com/) - The project uses **Materialize** as design framework to simplify the structure of the website and make the website responsive easily.
-- [Google Fonts](https://fonts.google.com/) - The project uses **Google fonts** to style the website fonts.
-- [Font Awesome](https://fontawesome.com/changelog/latest) - Icons are primarily sourced from Font Awesome
-- [Canva](https://www.canva.com/)-This project used tools in **Canva** to edit, crop and save images. 
-    - **Canva** was also used to source all imagery and design of banner, logo and tile elements. 
-- [Colour picker](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) was also used to ensure color consistency over the entire project. 
-
-### Code Validation
-
-
-
-
+    - [Materialize](https://materializecss.com/) - The project uses **Materialize** as design framework to simplify the structure of the website and make the website responsive easily.
+    - [Google Fonts](https://fonts.google.com/) - The project uses **Google fonts** to style the website fonts.
+    - [Font Awesome](https://fontawesome.com/changelog/latest) - Icons are primarily sourced from Font Awesome
+    - [Canva](https://www.canva.com/)-This project used tools in **Canva** to edit, crop and save images. 
+        - **Canva** was also used to source all imagery and design of banner, logo and tile elements. 
+    - [Colour picker](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) was also used to ensure color consistency over the entire project. 
 
 
 ## Testing 
 
-Manual testing was carried out on this site by the developers family memebers to review the UX and responsivness 
+### Site UI/UX 
+
+- Manual testing was carried out on this site by the developers family members to review the UX and site responsivness
+- Chrome dev tools were used to review responsivness on multiple device sizes
+- 
 
 ### Error pages
 
