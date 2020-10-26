@@ -89,7 +89,8 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "charity_overview": request.form.get("charity_overview").lower(),
-            "charity_registration_number": request.form.get("charity_registration_number").lower(),
+            "charity_registration_number": request.form.get(
+                "charity_registration_number").lower(),
             "charity_website": request.form.get("charity_website"),
             "charity_logo": request.form.get("charity_logo"),
             "password": generate_password_hash(request.form.get("password"))
@@ -122,7 +123,8 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(existing_user["password"], request.form.get("password")):
+            if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
@@ -191,7 +193,8 @@ def create_project():
         flash("Project Successfully Added", "success")
         return redirect(url_for("get_projects"))
 
-    categories = mongo.db.project_categories.find().sort("project_category_name", 1)
+    categories = mongo.db.project_categories.find().sort(
+        "project_category_name", 1)
     return render_template("create_project.html", categories=categories)
 
 
@@ -206,7 +209,8 @@ def project_detail(project_id):
         if request.method == "POST":
             is_urgent = "on" if request.form.get("is_urgent") else "off"
             project = {
-                "project_category_name": request.form.get("project_category_name"),
+                "project_category_name": request.form.get(
+                    "project_category_name"),
                 "project_name": request.form.get("project_name"),
                 "project_overview": request.form.get("project_overview"),
                 "project_description": request.form.get("project_description"),
@@ -217,8 +221,10 @@ def project_detail(project_id):
             }
 
         project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
-        categories = mongo.db.project_categories.find().sort("project_category_name", 1)
-        return render_template("project_detail.html", project=project, categories=categories)
+        categories = mongo.db.project_categories.find().sort(
+            "project_category_name", 1)
+        return render_template(
+            "project_detail.html", project=project, categories=categories)
 
     else:
         return render_template("404.html")
@@ -235,7 +241,8 @@ def edit_project(project_id):
         if request.method == "POST":
             is_urgent = "on" if request.form.get("is_urgent") else "off"
             edit = {
-                "project_category_name": request.form.get("project_category_name"),
+                "project_category_name": request.form.get(
+                    "project_category_name"),
                 "project_name": request.form.get("project_name"),
                 "project_overview": request.form.get("project_overview"),
                 "project_description": request.form.get("project_description"),
@@ -249,8 +256,10 @@ def edit_project(project_id):
             return redirect(url_for("get_projects"))
 
         project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
-        categories = mongo.db.project_categories.find().sort("project_category_name", 1)
-        return render_template("edit_project.html", project=project, categories=categories)
+        categories = mongo.db.project_categories.find().sort(
+            "project_category_name", 1)
+        return render_template(
+            "edit_project.html", project=project, categories=categories)
     else:
         return render_template("404.html")
 
@@ -276,9 +285,10 @@ def get_categories():
     List of all projects created on the DB
     - Only visible to the username == admin
     - admin user can view all categories
-    - adminuser can add, edit and delete categories. 
+    - adminuser can add, edit and delete categories.
     """
-    categories = list(mongo.db.project_categories.find().sort("project_category_name", 1))
+    categories = list(mongo.db.project_categories.find().sort(
+        "project_category_name", 1))
     return render_template("categories.html", categories=categories)
 
 
@@ -308,7 +318,8 @@ def edit_category(category_id):
     if is_valid_id(category_id, mongo.db.category_id):
         if request.method == "POST":
             submit = {
-                "project_category_name": request.form.get("project_category_name")
+                "project_category_name": request.form.get(
+                    "project_category_name")
             }
             mongo.db.project_categories.update(
                 {"_id": ObjectId(category_id)}, submit)
@@ -336,9 +347,10 @@ def delete_category(category_id):
         return render_template("404.html")
 
 
-"""Error handling 
-    - Set up error handling leveraging inbuilt flask funtionality 
-    - reference -https://www.geeksforgeeks.org/python-404-error-handling-in-flask/#:~:text=A%20404%20Error%20is%20showed,the%20default%20Ugly%20Error%20page.
+"""Error handling
+    - Set up error handling leveraging inbuilt flask funtionality
+    - reference -https://www.geeksforgeeks.org/python-404-
+    error-handling-in-flask/#:~:text=A%20404%20Error%20is%20showed,the%20default%20Ugly%20Error%20page.
 """
 
 
