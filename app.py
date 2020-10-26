@@ -17,6 +17,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+def is_valid_id(id,model):
+    try:
+        model.find_one({"_id": ObjectId(id)})
+        return True
+    except:
+        return False
 
 @app.route("/")
 @app.route("/index")
@@ -73,7 +79,7 @@ def register():
          # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!", "success")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("index", username=session["user"]))
 
     return render_template("register.html")
 
@@ -148,26 +154,30 @@ def create_project():
     return render_template("create_project.html", categories=categories)
 
 
+
+
 @app.route("/project_detail/<project_id>", methods=["GET", "POST"])
 def project_detail(project_id):
-    if request.method == "POST":
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
-        detail = {
-            "project_category_name": request.form.get("project_category_name"),
-            "project_name": request.form.get("project_name"),
-            "project_overview": request.form.get("project_overview"),
-            "project_description": request.form.get("project_description"),
-            "project_img_url": request.form.get("project_img_url"),
-            "is_urgent": is_urgent,
-            "project_date": request.form.get("project_date"),
-            "created_by": session["user"]
-        }
+    if is_valid_id(project_id,mongo.db.projects):
+        if request.method == "POST":
+            is_urgent = "on" if request.form.get("is_urgent") else "off"
+            detail = {
+                "project_category_name": request.form.get("project_category_name"),
+                "project_name": request.form.get("project_name"),
+                "project_overview": request.form.get("project_overview"),
+                "project_description": request.form.get("project_description"),
+                "project_img_url": request.form.get("project_img_url"),
+                "is_urgent": is_urgent,
+                "project_date": request.form.get("project_date"),
+                "created_by": session["user"]
+            }
 
-    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
-    categories = mongo.db.project_categories.find().sort("project_category_name", 1)
-    return render_template("project_detail.html", project=project, categories=categories)
+        project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+        categories = mongo.db.project_categories.find().sort("project_category_name", 1)
+        return render_template("project_detail.html", project=project, categories=categories)
 
-
+    else: 
+        return render_template("404.html")
 
 @app.route("/edit_project/<project_id>", methods=["GET", "POST"])
 def edit_project(project_id):
@@ -240,12 +250,29 @@ def delete_category(category_id):
     flash("Category Successfully Deleted", "success")
     return redirect(url_for("get_categories"))
 
+
+# Error 403 handler route
+@app.errorhandler(403)
+def forbidden(e):
+
+    return render_template('403.html'), 403
+
+
+# Error 404 handler route
 @app.errorhandler(404)
 def page_not_found(e):
-    # note that we set the 404 status explicitly
+
     return render_template('404.html'), 404
 
 
+# Error 500 handler route
+@app.errorhandler(500)
+def server_error(e):
+
+    return render_template('500.html'), 500
+
+
+# To run the app
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

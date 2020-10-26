@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
 		integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
 		crossorigin="anonymous" type="text/css">
@@ -102,22 +103,6 @@
 
 
     <footer class="page-footer">
-         <!-- <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Galway Charity Projects</h5>
-              </div>
-              <div class="col l4 offset-l2 s12">
-              
-                <h5 class="white-text">Follow Us</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
-                </ul> 
-              </div>
-            </div>
-          </div> -->
           <div class="footer-copyright">
             <div class="container">
             <div class="col m6 l6 s12">
@@ -131,7 +116,7 @@
             </div>
           </div>
         </footer>
-{% block footer %}
+    {% block footer %}
 	{% endblock %}
 
 
