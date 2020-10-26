@@ -127,7 +127,7 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
-                    request.form.get("username")))
+                    request.form.get("username")), "success")
                 return redirect(url_for("index", username=session["user"]))
             else:
                 # invalid password match

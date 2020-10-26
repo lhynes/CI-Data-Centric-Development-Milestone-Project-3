@@ -260,6 +260,7 @@ Future features may include but not limted to:
     - Password update feature
 2. **Project Detail Page** - Create project sign up to sync with Charities DB
 3. **Project List Page** - Pagination
+4. **Admin User** - at present admin is identified with just username == admin I would like the ability to have multiple admins
 
 <br>
 
@@ -329,7 +330,7 @@ Possible Actions
     </div>
 - **Expected Result:** Directed to Project Detail Page
 
-
+<br>
 
 #### Charity User Story - Session User
 
@@ -427,48 +428,89 @@ Launch Site via URL - https://galway-charity-projects.herokuapp.com/
 
 ##### *Projects Delete*
 User can delete a project by clicking the *Complete* button
-    - **Expected Result:** 
-        - Pop-up mondal to ask user to confirm deletion
-        - Project delted from list
-        - User directed back to project list page
-        - Success Flash message --> "*Project Complete*"
+- **Expected Result:** 
+    - Pop-up mondal to ask user to confirm deletion
+    - Project deleted from list
+    - User directed back to project list page
+    - Success Flash message --> "*Project Complete*"
 
 - **Defensive Design:** 
     - To project the integrity of all projects a registered user is only able to delete a project they created
-
+<br>
 
 #### Admin User Story
 
+Possible Actions: 
+- Access to all registered user features
+- Added feature of project category management 
+
+
+##### *Login*
 - To test admin feature please use the following login details: 
     - *Username*: admin
     - *Password*:123123123
 
-
 ##### *Category (CRUD)*
-
 ##### *View Categories*
 
+- Log in with username == admin
+- Select *Project Categories* from the navigation menu
+    <div align="center">
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603733923/Screenshot_2020-10-26_at_17.38.16_girpuo.png" alt="Screenshot: detail card"><br>
+    </div>
+- **Expected Result:** 
+    - Directed to Project Category list page 
+    <div align="center">
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603745740/Screenshot_2020-10-26_at_20.47.14_auo4xc.png" alt="Screenshot: detail card"><br>
+    </div>
 
+**Defensive Design:** 
+- Only admin can view the categories to protect 
+ 
 
+##### Project-Category Create
+- On project category list page click "*Add Project Category*" button
+- Directed to Add Category page
+- Enter new category name and click the "*Add Project Category*" button
+<div align="center">
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603746049/Screenshot_2020-10-26_at_21.00.38_ykrekx.png" alt="Screenshot: detail card"><br>
+    </div>
 
+- **Expected Result:** 
+    - Directed to Project Category list page 
+    - Success Flash message --> "*New Category Successfully Added*"
+    - New category card appears on list page
 
-##### *Login*
-
-##### Project Category Create
-
-##### *Project-Category Create*
-
-##### *Project-Category Read*
 
 ##### *Project-Category Edit/Update*
+- On project category list page click "*Edit*" button on the category card you'd like to edit
+- **Expected Result:** - Directed to Edit Category page
+- Make edit to category or cancel changes
+- **Expected Result:**
+    - Directed back to list page
+    - If changes made flash message --> "*Category Successfully Updated*"
 
 ##### *Project-Category Delete*
+- On project category list page click "*Delete*" button on the category card you'd like to remove
+- **Expected Result:** 
+    - Pop-up mondal to ask user to confirm deletion
+    - Category deleted from list
+    - User directed back to project category list page
+    - Success Flash message --> "*Category Successfully Deleted*"
 
-#### *Registration*
+
 
 ### Defensive Design Testing
 
-Features have been designed with the consideration to the session user. 
+- As detailed above all features have been designed with the consideration to the session user to manage the user actions and visibility
+- Navigation menu items have been restricted based on session user
+
+#### **Error pages**
+Error messages have been implemented for errors - 403, 404, 500
+Testing: 
+- The 404 error page was tested manually by entering in incorrect URL pat
+- The links on the 404 page were tested by clicking and checking they redirected correctly. 
+
 
 
 ### **Code Validators**
@@ -486,10 +528,6 @@ To ensure all code was clean, bug free and most importantly for python PEP8 comp
 - Chrome dev tools were used to review responsivness on multiple device sizes
 - Cross browswer testing was also attempted on chrome and safari
 
-### **Error pages**
-
-- The 404 error page was tested manually by entering in incorrect URL pat
-- The links on the 404 page were tested by clicking and checking they redirected correctly. 
 
 
 
