@@ -165,7 +165,7 @@ def logout():
     and remove their session cookie
     """
     # remove user from session cookie
-    # flash("You have been successfully logged out", "success")
+    flash("You have been successfully logged out", "success")
     session.pop("user")
     return redirect(url_for("index"))
 
