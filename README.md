@@ -529,63 +529,101 @@ To ensure all code was clean, bug free and most importantly for python PEP8 comp
 - Cross browswer testing was also attempted on chrome and safari
 
 
-
-
 ## Deployment
+
+### Requirements for Deployment
+- Gitpod of IDE of choice
+- Python3 to run your application
+- PIP to install all app requirements
+- Database --> MongoDB Atlas account for database development
+- Heroku account
+
+### Source Code
 
 This project was developed using the [GitHub IDE- GitPod](https://www.gitpod.io/) , committed to git and pushed to GitHub via the terminal in GitPod
 
-To deploy We Support Local to GitHub Pages from its [GitHub repository](https://github.com/lhynes/Interactive-Frontend-Development-milestone-Project), the following steps were taken: 
+The code for *Galway Charity Projects* is stored on this [GitHub repository](https://github.com/lhynes/CI-Data-Centric-Development-Milestone-Project-3), the following steps were taken: 
 1. Log into GitHub. 
-2. From the list of repositories on the screen, select **Interactive-Frontend-Development-milestone-Project**.
-3. From the menu items near the top of the page, select **Settings**.
-4. Scroll down to the **GitHub Pages** section.
-5. Under **Source** click the drop-down menu labelled **None** and select **Master Branch**
-6. On selecting Master Branch the page is automatically refreshed, PicFlip! is now deployed. 
-7. Scroll back down to the **GitHub Pages** section to retrieve the link to the deployed website.
-
-The Master Branch is up to date containing the most recent version of the project. 
-
-### How to run this project locally
-
-You can follow this [link](https://lhynes.github.io/Interactive-Frontend-Development-milestone-Project/index.html) to view the site. 
-
+2. Navigate to the site [repository](CI-Data-Centric-Development-Milestone-Project-3) 
+3. From here you can clone the repo. 
 To clone this project from GitHub:
-1. Follow this link to the [GitHub repository](https://github.com/lhynes/Interactive-Frontend-Development-milestone-Project).
-2. Under the repository name, click "Clone or download".
-3. In the Clone with HTTPs section, copy the clone URL for the repository. 
-4. In your local IDE open Git Bash.
-5. Change the current working directory to the location where you want the cloned directory to be made.
-6. Type ```git clone```, and then paste the URL you copied in Step 3.
+ - Follow this link to the [GitHub repository](https://github.com/lhynes/CI-Data-Centric-Development-Milestone-Project-3).
+ - Under the repository name, click "Clone or download".
+ - In the Clone with HTTPs section, copy the clone URL for the repository. 
+ - In your local IDE open Git Bash.
+ - Change the current working directory to the location where you want the cloned directory to be made.
+ - Type ```git clone```, and then paste the URL you copied in Step 3.
 ```console
 git clone https://github.com/USERNAME/REPOSITORY
 ```
-7. Press Enter. Your local clone will be created.
+ - Press Enter. Your local clone will be created.
+
+
+The Master Branch is up to date containing the most recent version of the project. 
+
+### Heroku Deployment
+
+This project has been bepoyed to Heroku. 
+Automated pushes were enabled from my [GitHub repository](https://github.com/lhynes/CI-Data-Centric-Development-Milestone-Project-3) to Heroku. 
+The following steps were following for setting up deployment on Heroku: 
+1. Create requirements.txt file:  In GitPod IDE enter ```pip freeze > requirements.txt``` to the teminal 
+2. Create a Procfile: ```echo web: python app.py > Procfile```
+3. User git add, commit and push to ensure requirements.txt and Procfile are in the [GitHub repository](https://github.com/lhynes/CI-Data-Centric-Development-Milestone-Project-3)
+4. Create new app in Heroku : galway-charity-projects (Region Europe)
+<div align="center">
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603748143/Screenshot_2020-10-26_at_21.35.15_hyx6dg.png" alt="Screenshot: Heroku New App"><br>
+    </div>
+
+5. Heroku Deployment method -->  GitHub - confirm linked to project repo
+<div align="center"></div>
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603748304/Screenshot_2020-10-26_at_21.37.44_ollrlm.png"><br>
+    </div>
+
+6. Set up config vars - Settings --> 
+<div align="center"></div>
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603748411/Screenshot_2020-10-26_at_21.37.44_huazpb.png"><br>
+    </div>
+
+7. Once set up return to Deploy tab and select --> Deploy Branch
+<div align="center"></div>
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603748537/Screenshot_2020-10-26_at_21.41.15_n5fk9b.png"><br>
+    </div>
+
+8. Once complete app was live  - [Click here!](https://galway-charity-projects.herokuapp.com/)
+
+*Sample ENVpy file*
+<br>
+```import os```
+
+```os.environ.setdefault("IP", "0.0.0.0")```
+```os.environ.setdefault("PORT", "5000")```
+```os.environ.setdefault("SECRET_KEY", "!LL%Ha&</M|IZsa|<>}V<4hH^/;V>L")```
+```os.environ.setdefault("MONGO_URI", "mongodb+srv://Loop2020:ThisWi11b3Fun2020@myfirstcluster.rjtfq.mongodb.net/galway_charity_projects_manager?retryWrites=true&w=majority")```
+```os.environ.setdefault("MONGO_DBNAME", "galway_charity_projects_manager")```
+
+
 
 
 ## Credits
 
 ### Content
 
-- All text in this project was written by the developer.
+- The concept, design and text for this project was created by the developer. 
 
 ### Media
 
 #### Images
-- The We Support Local logo was created using [Canva](https://www.canva.com/).
+- The Galway Charity Projects logo was created using [Canva](https://www.canva.com/).
 - All imagery for the site was sourced from [Canva](https://www.canva.com/).
 
 
 ### Code
-- Code for the photo grid was taken from this [W3Schools](https://www.w3schools.com/howto/howto_css_image_grid_responsive.asp) post.
-- Google maps impmelentation was supported but the [Goole Maps Places API Documentation](https://developers.google.com/places/web-service/overview)
-- Code for the radio buttons input for the goodle maps type was from [StactOverflow](https://stackoverflow.com/questions/41970336/update-marker-and-place-types-using-radio-button-google-place);
-- Elements and layout for the site was taken from [Bootstrap](https://startbootstrap.com/snippets/)
+- Code was primarily inspired by the Task Manager mini project tutorials. 
 
 ### Acknowledgements
 
 I would like to extend a special thanks to my Code Institute Mentor Anthony Ngene for kind support and time throughout this project.
-He inpsired me to try new things, helped to explain and show ways to imporve my code when struggling. 
+Thank you also to the tutors for their support and the wider slack community - I've learned so much during this project and can't wait to revisit it again in the near future. 
 
 
 #### Disclaimer
