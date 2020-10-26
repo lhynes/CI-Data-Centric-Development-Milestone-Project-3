@@ -1,16 +1,19 @@
 # Data-Centric-Development-Milestone-Project-3
 
 <h1 align="center">
-  <a href="https://galway-charity-projects.herokuapp.com/" target="_blank"><img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603728502/android-chrome-512x512_nbbwmx.png" alt="We Support Local logo"/></a>
+  <a href="https://galway-charity-projects.herokuapp.com/" target="_blank"><img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603642648/Galway_Charity_Projects_youzgg.png" alt="Galway Charity Projects"/></a>
 </h1>
+<div align="center"> 
+<img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603730801/favicon-32x32_owefug.png" alt="Galway Charity Projects"/>
+</div>
 <h2 align="center">
 Galway Charity Prjects(GCP) - A home for Galway's volunteering community to come together to support local charities. 
 </h2>
-<div align="center"> 
-
+<div > 
 Before Covid-19 people, interested in volunteering, would often look beyond their own county and even country for volunteering oppotunities.  The recent times have taught us all how powerful the impact can be when we support local. 
 Today, some charities are struggling because they cannot get access to volunteers to support their projects and some volunteers are lost as they don't know what projects they can support in their area. 
 [Galway Charity Projects](https://galway-charity-projects.herokuapp.com/) is a place to encourage local volunteers and charities to engage more and work together to strengthen our community
+<br>
 <br>
 Features of the site include easy to view project list and detail page and simple registration process for charities which I hope will allow users to achieve the following: 
 
@@ -28,12 +31,13 @@ In Phase one we are focusing on the city of Galway with the intention to build o
 ## Table of Contents
 1. [**UX**](#ux)
     - [**Project Goals**](#project-goals)
-    - [**Business Owner goals**](#business-owner-goals)
-    - [**Local Community goals**](#local-community-goals)
+    - [**Charity goals**](#charity-goals)
+    - [**Volunteer goals**](#volunteer-goals)
     - [**Developer and Business Goals**](#developer-and-Business-Goals)
     - [**User Stories**](#user-stories)
     - [**Design choices**](#design-choices)
     - [**Wireframes**](#wireframes)
+    - [**Database**](#database)
 
 2. [**Features**](#features)
     - [**Existing Features**](#existing-features)
@@ -58,114 +62,136 @@ In Phase one we are focusing on the city of Galway with the intention to build o
 
 ### Project Goals
 
-The primary goal of We Support Local (WSL) is to provide a clean, intuitive and engaging site to help people find out more about the businesses close to them - those with and without store fronts. 
+The primary goal of Galway Charity Projects (GCP) is to provide a clean, intuitive and engaging site to help people find out more about the ongoing charity projects close to them. 
 
-WSL has two target audiences: Business Owners and the local community looking to support. 
+GCP has two target audiences: Local charities and the local community/volunteers looking to support. 
 
-#### Business Owner goals
+#### Charity Goals
 
-Business Owners want and need support during covid: 
-- They want to get their message out there that they are open and back for business
-- They want to make sure the community is aware they are open
-- They want to share their stories in the weekly WSL newsletter 
-- They want an easy way to register their business online
+Local charities want and need project support: 
+- They want to get their message out there about the projects they have live and need support on. 
+- They want to make sure the community is aware of they different initiatives
+- They want an easy way to register their projects online
 
-WSL can help business owners because:
-- It provides a platform for business owners to share their story
-- It ensures their listing is live and active on the site
-- Business owners can easily submit their business for the site using a simple sign up form
-- WSL also offers a direct link from google maps to the business to ansure customers know where they are located. 
+GCP can help local charities owners because:
+- It provides a platform for local charities to share their projects. 
+- It ensures their listing is live and active on the site.
+- Charities can easily submit their projects for the site using a simple form
+- GCP also offers them the feature to update their projects when details change or remove them one complete. 
+- Charities can also indicate projects that need urgent support
 
 
-#### Local Community goals
 
-During these carazy times people want to make the extra effort to shop local and support local where they can. 
-Sometimes they might not always be aware of the different shops and stores in their area. 
+#### Volunteer goals
 
-Members of the local community goals are:
-- Find out if there is a local shop or service they can avail of
-- Learn about new businesses in their area
-- Locate where in the city shops and services are located
-- Have a one stop location where they can find out all about the local businesses 
+People want to make the extra effort to support local where they can and give back to the community and volunteering is a great way to do this but 
+sometimes they might not always be aware of the different opportunities and projects in their area. 
 
-WSL can help meet the needs of the community because: 
-- It can offer a weekly digest via newsletter to keep them informed on the latest updates in their area. 
-- It displays in an engaging and simple way the location and ratings of various businesses that might be of interest to them. 
+Volunteers and members of the local community can:
+- Learn about new charity projects in Galway
+- Find out more information on different projects via a detail page
+- Discover which projects might need urgent support
+- Have a one stop location where they can find out all about the local charity 
+
+GCP can help meet the needs of the community because: 
+- It can offer a list view of all live projects. 
+- Provide a search feature on the projects page to filter to the volunteers interest. 
+- It displays in an engaging and simple way.
 - It has been designed with user experience as a priority to easily guide them through the site 
 
 #### Developer and Business Goals
 
-- A well designed directory of businesses that strives to have a positive imact on the community. 
-- Good and clean programming that is robust and scaleable with the increase of cities and businesses joining. 
-- A professional looking first attempt of using JavaScript and apis -  google maps and emailJS which the developer is excited to make a part of her portfolio. 
+- A well designed directory of charity projects that strives to have a positive imact on the community. 
+- Good and clean programming that is robust and scaleable with the increase of cities and charities joining. 
+- A professional looking first attempt of using python, flask, materialize which the developer is excited to make a part of her portfolio and continue to develop in the future
 
 #### User Stories
 
-As a business owner, I want:
-1. To register my business
-2. Review other businesses in my area
-3. Collaborate with WSL in their weekly newsletter to share my story with the community. 
+As a charity owner, I want:
+1. To register my charity
+2. Create new charity project listing and share details. 
+3. Edit, update and delete a project when necessary. 
+
+As a volunteer and member of the community, I want:
+1. Discover more about the volunteering opportunities in my area based on my catagories of interest
+2. A visually and operationally appealing site that makes if simple to learn more about local charitiy projects. 
+3. Easily view the details of a specific project.
+
+As an admin user, I want:
+1. To view all projects
+2. Create, edit, update and dleete project categories when needed
 
 
-As a member of the community, I want:
-1. Discover more about the businesses in my area based on my catagories of interest
-2. A visually and operationally appealing site that makes if simple to learn more about local shops and services 
-    - modifications to the UX have been built in to support the expereince such as a "Back to TOp" button on the listing page. 
-3. Sign up to a newsletter to get more updates on the different businesses reopening and the progress they are making
 
-### Design Choices
+#### Design Choices
 
 The overall feel of the site is one that is visually appealing and simple to follow. The following design choices were made with this in mind:
 
 **Fonts**
 
-- The primary font **Oswald** was chosen because it is a crisp, sharp and easy to read font. It was inspired byt the logo created on Canva.com. 
+- The primary font **Roboto** was chosen because it is a crisp, sharp and easy to read font. It was inspired by the logo created on Canva.com. 
 
 **Colours**
 
-- The primary colour choices for this site is grey and yellow. Again this has been inspired but the Logo created on Canva.com. A basica pallet was chosen to ensure the infomration on the page was the main focus.
+- The primary colour choices for this site is purple and blue.  This has been inspired by the county colours of Galway and also the blue as an uplifting balance. 
+A basic pallet was chosen to ensure the infomration on the page was the main focus.
 
 **Styling**
 
-- On the listing page cards and containers have been given rounded edges and a drop shadow to highlight these areas on the page more.  
+- On the listing page cards have a minimalist design and rounded edges and a drop shadow to highlight these areas on the page more.  
 - Design and styting consistency was important on this site to help linking and combining the related areas together. 
 
 
-**City Tile Images**
 
-- Images of iconic city landmarks were chosen to help a user quickly identify the location.  
+**Home Tile Images**
 
-
-**Catagory Tile Images**
-
-- The catagory images were chosen to help identify the catagory to the user, selecting common imagery often associated to each topic. 
+- At present these have been kept simple and will be considered again int the future. 
 
 
-**Hero Banner images**
 
-- To maintain consistency the hero banner images were chosen to mimic the catagory tiles where possible. 
+**Header and home Banner images**
+
+- A strong header was chosen to make the logo and heading memorable 
 - The homepage image was chosen for its friendliness and warmness of complimentry colour palette. 
 
 
 
-### Wireframes
+#### Wireframes
 
 During the early part of the project wireframes were created using pen and paper and on [Pages](https://www.apple.com/pages/). 
 
-- [Link](https://drive.google.com/file/d/1hABEzZ1cofteF28lnBLZkHwkpPItizxj/view?usp=sharing)
+- [Link](https://drive.google.com/drive/folders/14ucGfk0wU4zXHGPPJoB9GMs4_lIcOa28?usp=sharing)
+
+
+### Database
+Database
+
+This website has a MongoDB database called: galway_charity_projects_manager
+The database consists of 3 collections(tables)
+- Users
+- Projects
+- Project Categories
+<div align="center">
+<img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603730576/Screenshot_2020-10-26_at_16.41.55_hnoews.png" alt="Screenshot: Homepage" >
+</div>
+*This database was a good fit for the complexity level of this project - in the future I would review the options available*
+
 
 
 ## Features
  
 ### Existing Features
 
-1. **Home - City Overview**
-    - On arriving at the homepage page the user is presented with the option to select their city of preference - at present only Galway is active 
-    - They can select Galway and be directed to the Galway Catagory Page
+#### *Visible to all users*
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/17083566/89499456-f5243800-d7b7-11ea-852a-f23f76a9b48f.png" alt="Screenshot: Homepage" >
-</div>
+1. **Home - Site Overview**
+    - On arriving at the homepage page the user is presented with the option to select one of two options 
+        - Volunteer - Find Projects 
+        - Charity - Register Project
+    - They can select Galway and be directed to the Galway Catagory Page
+    - 
+
+
 
 
 2. **Buiness Owner**
@@ -201,6 +227,24 @@ During the early part of the project wireframes were created using pen and paper
 
 7. **Back to top button**
     - To enhance the UX on pages with long listings a "Back to top" button scrolls the user back to the top of the page. 
+
+
+#### *Visible to all registered users*
+
+
+#### *Visible to admin*
+
+- Username: admin
+- Password:123123123
+
+1. **Categories**
+    - Full CRUD funtionality  arriving at the homepage page the user is presented with the option to select their city of preference - at present only Galway is active 
+    - They can select Galway and be directed to the Galway Catagory Page
+At this time there are three main Categories, however, the page assumes that the Administrator might want to expand on it in the future. Therefore there are three options available here:
+
+Add Category
+Edit Category
+Delete Category
 
 
 ### Features Left to Implement
