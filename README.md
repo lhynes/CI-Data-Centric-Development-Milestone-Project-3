@@ -300,34 +300,157 @@ Future features may include but not limted to:
 
 #### Volunteer User Story - Non Session User
 
+Possible Actions
+- View Home Page
+- View list of live projects
+- View Project Detail Page for more information on a project with contact info for charity
+
+##### *View Home Page*
+- Launch Site via URL - https://galway-charity-projects.herokuapp.com/
+- **Expected Result:** Directed to site homepage
+
 ##### *View Projects*
 - Launch Site via URL - https://galway-charity-projects.herokuapp.com/
-    - **Option 1** - Click the *Find Projects* link from the navigation menu
-    - **Option 2** - Click the *View Projects* link from the navigation menu
+- Try to find the project list
+    - **Option 1** - Click the *View Projects* link from the navigation menu
+        <div align="center">
+        <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603741629/Screenshot_2020-10-26_at_19.46.50_yurvxn.png" alt="Screenshot: navigation"><br>
+        </div>
+    - **Option 2** - On the home page click the *View Projects* link from the Volunteers card 
+        <div align="center">
+        <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603741635/Screenshot_2020-10-26_at_19.46.56_a1wmwl.png" alt="Screenshot: home card"><br>
+        </div>
+- **Expected Result:** Directed to project list view page
+
+##### *View Project Details*
+- When on the project list page click the "Find out more" button on the 
+    <div align="center">
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603741746/Screenshot_2020-10-26_at_19.48.56_lg4rxn.png" alt="Screenshot: home card"><br>
+    </div>
+- **Expected Result:** Directed to Project Detail Page
 
 
 
-#### Charity User Story
+#### Charity User Story - Session User
 
+Possible Actions
+- View Home Page (as Volunteer User Story)
+- View list of live projects (as Volunteer User Story)
+- View Project Detail Page for more information on a project with contact info for charity (as Volunteer User Story)
+- Register Charity
+- Login
+- Logout
+- Create a Project
+- Edit/Update own Project
+- Delete Project
+
+##### *Find Register Charity Page*
+- Launch Site via URL - https://galway-charity-projects.herokuapp.com/ --> Arrive on homepage
+- From the navigation menu click *Account* --> then click "Register Your Charity"
+- **Expected Result:** Directed to Charity Registration Page
 ##### *Register Charity*
+- While on the Registrstion page fill out details on the form - All fields are required and form validation built in - user will be prompted to fill in all fields
+- Click *Register* button
+- **Expected Result:** 
+    - Directed to homepage
+    - Success flash message to appear confirming successful registration - "*Project Successfully Added*"
+- **Defensive Design:** 
+    - Enter a dupicate username --> warning flash message returned
 
 ##### *Login*
+Launch Site via URL - https://galway-charity-projects.herokuapp.com/
+- Try to find the Login page
+    - **Option 1** - From the navigation menu click *Account* --> then click *Login* 
+        <div align="center">
+        <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603734391/Screenshot_2020-10-26_at_17.46.23_qoylgn.png" alt="Screenshot: navigation"><br>
+        </div>
+    - **Option 2** - On the home page click the *Login to create your project* button from the Charity card 
+        <div align="center">
+        <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603743074/Screenshot_2020-10-26_at_20.10.29_l1pxr9.png" alt="Screenshot: home card"><br>
+        </div>
+- **Expected Result:** 
+    - Directed to Login Page
 
-##### *Projects Create*
+- Fill in username and password 
+- **Expected Result:** 
+    - Directed to Home page
+    - Success flash message to appear with welcome message to user - "*Welcome 'username'*"
+- **Defensive Design:** 
+    - Enter a wrong username --> warning flash message returned - "*Incorrect Username and/or Password*"
+    - Enter a wrong password --> warning flash message returned - "*Incorrect Username and/or Password*"
 
-##### *Projects Read*
 
-##### *Projects Edit/Update*
-
-##### *Projects Delete*
-
-
+##### *Logout*
+- From the navigation menu click *Account* --> then click *Logout* 
+- **Expected Result:** 
+    - Directed to Homepage
+    - Success flash message confirming you have logged out --> "*You have been successfully logged out*"
 
 ##### *Projects (CRUD)*
+##### *Projects Create*
+- From the navigation menu click *Create Projects*
+- Fill out form all fields required except for *Project Image URL* and *This Project Requires Urgent Support*
+- Click the "*Submit Project*" button
+
+- **Expected Result:** 
+    - Directed to Project List page and will see new project live on the page
+    - Success flash message to appear --> "*Project Successfully Added*"
+- **Defensive Design:** 
+    - User will be prompted to fill out required fields and won't be able to submit untill populated
+    - If the *Project Image URL* isn't populated, [jQuery function](https://stackoverflow.com/questions/54674829/render-default-image-in-flask) will be called to populate with default image
+
+##### *Projects Read*
+- As Volunteer User Story
+
+##### *Projects Edit/Update*
+- Registered user will have the abilty to edit a project
+- Navigate to the project detail page
+    - From the navigation menu select *View Projects* then select the project to edit 
+    - From the project detail page select the edit button on the card
+- **Expected Result:** 
+    - Directed to Edit Project page
+    <div align="center">
+    <img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603744208/Screenshot_2020-10-26_at_20.27.29_xbrh8j.png" alt="Screenshot: detail card"><br>
+    </div>
+ 
+- User can edit details and click the *Update* button
+    - **Expected Result:** 
+        - Directed to Project List page
+        - Success Flash message --> "*Project Successfully Updated*"
+- User can cancel changes and click the *cancel* button
+    - **Expected Result:** 
+        - Directed back to the project detail page to review
+
+- **Defensive Design:** 
+    - To project the integrity of all projects a registered user is only able to edit a project they created
 
 
-##### *View Projects*
+##### *Projects Delete*
+User can delete a project by clicking the *Complete* button
+    - **Expected Result:** 
+        - Pop-up mondal to ask user to confirm deletion
+        - Project delted from list
+        - User directed back to project list page
+        - Success Flash message --> "*Project Complete*"
+
+- **Defensive Design:** 
+    - To project the integrity of all projects a registered user is only able to delete a project they created
+
+
 #### Admin User Story
+
+- To test admin feature please use the following login details: 
+    - *Username*: admin
+    - *Password*:123123123
+
+
+##### *Category (CRUD)*
+
+##### *View Categories*
+
+
+
+
 
 ##### *Login*
 
@@ -348,44 +471,6 @@ Future features may include but not limted to:
 Features have been designed with the consideration to the session user. 
 
 
-
-Wrong password entered when logging in 
-✔️ returns flash "Incorrect Username and/or Password" to ensure that the non-registered user does not guess one or the other if the incorrect entry is provided.
-Duplicate username registration attempt 
-✔️ returns flash "Username already exists
-Wrong username entered when logging in 
-✔️ returns flash "Incorrect Username and/or Password" to ensure that the non-registered user does not guess one or the other if the incorrect entry is provided.
-Attempt to access "/add_category" by non Administrator 
-link for testing: http://keto-cookbook.herokuapp.com/add_category
-✔️ renders About page if user in session but user is not "Administrator" ✔️ renders Login page if user is not in session
-Attempt to access "/get_categories" by non Administrator 
-link for testing: http://keto-cookbook.herokuapp.com/get_categories
-✔️ renders About page if user in session but user is not "Administrator" ✔️ renders Login page if user is not in session
-Attempt to access "/edit_category/category_id" by non Administrator
-link for testing: http://keto-cookbook.herokuapp.com/edit_category/5f6a00eadda48a7a60562ada (category_id as example)
-✔️ renders About page if user in session but user is not "Administrator" ✔️ renders Login page if user is not in session
-Attempt to access "/delete_category/category_id" by non Administrator
-link for testing: http://keto-cookbook.herokuapp.com/delete_category/5f6a00eadda48a7a60562ada (category_id as example)
-✔️ renders About page if user in session but user is not "Administrator" ✔️ renders Login page if user is not in session
-As non-logged on user attempt to access "/edit_profile/username" 
-link for testing: http://keto-cookbook.herokuapp.com/edit_profile/marie
-✔️ renders Login page if user is not in session
-
-As non-logged on user attempt to access "/profile/username" Login
-link for testing: http://keto-cookbook.herokuapp.com/profile/marie
-✔️ renders Login page if user is not in session
-
-As non-logged on user attempt to access "/wisemen" Login
-link for testing: http://keto-cookbook.herokuapp.com/wisemen
-✔️ renders Login page if user is not in session
-
-As non-logged on user attempt to access "/add_recipe"
-link for testing: http://keto-cookbook.herokuapp.com/add_recipe
-✔️ renders Login page if user is not in session
-
-As non-logged on user attempt to access "/edit_recipe"
-link for testing: http://keto-cookbook.herokuapp.com/edit_recipe/5f844c38884d26d0d8bd3aac%29
-✔️renders Login page if user is not in session
 ### **Code Validators**
 
 To ensure all code was clean, bug free and most importantly for python PEP8 compliant the following validators were used on the site: 
