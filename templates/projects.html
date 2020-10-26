@@ -1,57 +1,61 @@
 {% extends "base.html" %} 
 {% block content %}
 
-<h3 class="center-align text-shadow page-title">All Projects</h3>
+    <h3 class="center-align text-shadow page-title">All Projects</h3>
 
-<div class="listViewContainer">
-    <div class="row card-panel search">
-        <form action="{{ url_for('search') }}" method="POST" class="col m12 s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <input placeholder="enter serach word here" type="text" name="query" id="query" minlength="3" class="validate" required />
-                    <label for="query">Search Projects</label>
+    <div class="listViewContainer">
+        <div class="row card-panel search">
+            <form action="{{ url_for('search') }}" method="POST" class="col m12 s12">
+                <div class="row valign-wrapper center-align">
+                    <div class="input-field col s12 m8">
+                        <input placeholder="enter serach word here" type="text" name="query" id="query" minlength="3" class="validate" required />
+                        <label for="query">Search Projects</label>
+                    </div>
+                    <div class="col s12 m4">
+                        <button type="submit" class="btn-flat neutral text-shadow">
+                            Search
+                        </button>
+                        <a href="{{ url_for('get_projects') }}" class="btn-flat neutral text-shadow">Reset</a>
+                    </div>
                 </div>
-                <div class="col s12 m4">
-                    <button type="submit" class="btn-flat neutral text-shadow">
-                        Search
-                    </button>
-                    <a href="{{ url_for('get_projects') }}" class="btn-flat neutral text-shadow">Reset</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<div class="listViewContainer">
-    <div class="row">
-        {% for project in projects %}
-        <div class="col s12 m4">
-            <div class="card hoverable large">
-                <div class="card-image card-image-size">
-                    <img class="bg-image responsive-img" src="{{ project.project_img_url}}" onerror="this.src='/static/images/default.png'" alt="{{ project.project_name }}" />
-                </div>
-                <div class="card-content minimalist">
-                <span class="card-title bg-text text-shadow">
-                        <h5>{{ project.project_name }}</h5>
-                        <p class="medium-span"><em>{{ project.project_category_name }}</em></p>
-                    </span>
-                    <p>{{ project.project_overview }}</p></br>
-                    {% if project.is_urgent == "on" %} 
-                        <span class="center-align"> 
-                            <i class="fas fa-exclamation-circle red-text text-darken-3 tooltipped" 
-                            data-position="right" data-tooltip="This project needs urgent support!">
-                            * Volunteers Really Needed *</i>
-                        </span>
-                    {% endif %} 
-                </div>
-                <div class="card-action col s12 minimalist center-align" style="border-top-width: 0px;">
-                    <a href="{{ url_for('project_detail', project_id=project._id) }}" class="waves-effect waves-light btn-small"><i class="material-icons right">arrow_forward</i>Find out more</a>
-                </div>
-            </div>
+            </form>
         </div>
-
-        {% endfor %}
     </div>
-</div>
+
+    {% if projects|length > 0 %}
+    <div class="listViewContainer">
+        <div class="row">
+            {% for project in projects %}
+            <div class="col s12 m4">
+                <div class="card hoverable large">
+                    <div class="card-image card-image-size">
+                        <img class="bg-image responsive-img" src="{{ project.project_img_url}}" onerror="this.src='/static/images/default.png'" alt="{{ project.project_name }}" />
+                    </div>
+                    <div class="card-content minimalist">
+                    <span class="card-title bg-text text-shadow">
+                            <h5>{{ project.project_name }}</h5>
+                            <p class="medium-span"><em>{{ project.project_category_name }}</em></p>
+                        </span>
+                        <p>{{ project.project_overview }}</p></br>
+                        {% if project.is_urgent == "on" %} 
+                            <span class="center-align"> 
+                                <i class="fas fa-exclamation-circle red-text text-darken-3 tooltipped" 
+                                data-position="right" data-tooltip="This project needs urgent support!">
+                                * Volunteers Really Needed *</i>
+                            </span>
+                        {% endif %} 
+                    </div>
+                    <div class="card-action col s12 minimalist center-align" style="border-top-width: 0px;">
+                        <a href="{{ url_for('project_detail', project_id=project._id) }}" class="waves-effect waves-light btn-small"><i class="material-icons right">arrow_forward</i>Find out more</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <h3 class="red-text center-align text-shadow">No Results Found</h3>
+    {% endif %}
 
 {% endblock %}
