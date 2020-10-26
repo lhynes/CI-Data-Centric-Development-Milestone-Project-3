@@ -3,7 +3,7 @@
 <h1 align="center">
   <a href="https://galway-charity-projects.herokuapp.com/" target="_blank"><img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603642648/Galway_Charity_Projects_youzgg.png" alt="Galway Charity Projects"/></a>
 </h1>
-git 
+
 <h2 align="center">
 Galway Charity Prjects(GCP) - A home for Galway's volunteering community to come together to support local charities. 
 </h2>
@@ -181,111 +181,142 @@ The database consists of 3 collections(tables)
 ### Existing Features
 
 #### *Visible to all users*
+<div align="center">
+<img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603733800/screencapture-8080-c73c8b14-6269-4ff6-b900-aebfb54111b9-ws-eu01-gitpod-io-index-2020-10-26-17_36_20_ccay9g.png" alt="Volunteer View"><br>
+</div>
 
 1. **Home - Site Overview**
-    - On arriving at the homepage page the user is presented with the option to select one of two options 
-        - Volunteer - Find Projects 
-        - Charity - Register Project
+    - On arriving at the homepage page the user is presented static content to share a brief overview of the site and two key option cards - 
+        - LEFT: They can select the Volunteer card - View Projects Action
+        - RIGHT: They can select the Volunteer card Charity - 
+            - If user is logged in - Create Project Action
+            - If user is not logged in - Log in to get started Action
     - They can select Galway and be directed to the Galway Catagory Page
-    - 
 
 
 
+2. **All Projects**
+    - Charity projects list page contain a card list of all the available projects and a call to action on the card to "Find out more"
 
-2. **Buiness Owner**
-    - Business owner can add their business by following the navigation link "Submit a business" or the Call To Action Link under the catagory tiles. 
 
+3. **Project Detail**
+    - On selection of a charity project the user is directed to a project detail page. 
+
+4. **Login / Register your Charity**
+    - The option to Login or Register your charity is visible to all users from the accourn tab in the navigation bar. However, only those registered can use the login feature. 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/17083566/89499911-b5118500-d7b8-11ea-8fb1-014890c50430.png" alt="Screenshot: Navigation"><br>
-<img src="https://user-images.githubusercontent.com/17083566/89499916-b773df00-d7b8-11ea-8f99-34abf1372f60.png" alt="Screenshot: CTA"><br>
+<img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603734391/Screenshot_2020-10-26_at_17.46.23_qoylgn.png" alt="Screenshot: Login Register Nav Bar"><br>
 </div>
 
-3. **Newsletter Sign Up**
-    - Both business owners and Community members can sign up to the We Support Local Newletter
+5. **Error handling pages**
+    - Error page templates have been created for errors 403, 404 and 500
+    - A funtion called is_valid_id has been set up to ensure pages which contain a project or category id are mroe robust to code injection. 
+
+
+#### *Visible to registered users*
 
 <div align="center">
-<img src="hhttps://user-images.githubusercontent.com/17083566/89500101-06ba0f80-d7b9-11ea-99f5-7f23eb361369.png" alt="Screenshot: Galway Catagory Page"><br>
+<img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603733988/Screenshot_2020-10-26_at_17.39.37_piuotf.png" alt="Screenshot: Galway logged in user Nav Page"><br>
 </div>
 
-4. **Galway Catagory Page**
-    - On the city homepage a user can review all the different related business catagories in an easy and visually appealing phot grid. 
-    - On select of any catagory thwy will be directed to that catagories page. 
+1. **Create/Edit/Update/Delete Project**
+    - Registered users can create a new project and if needed later they have the ability to edit,update and delete the project
+    - When a user choosed to delete a project a modal will pop up first to promp the user to confirm they do want to delete the project. 
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/17083566/89500142-19ccdf80-d7b9-11ea-8591-0d0958c3d969.png" alt="Screenshot: Galway Catagory Page"><br>
-</div>
+2. **Logout**
 
-5. **Catagory Page - Map & Listing**
-    - On any single catagory page the user can see all the listings of the businesses on the google map located at the top center of the page
-    - Below the map the user can view the listings on styled cards
-
-
-6. **View on Google Maps button**
-    - On each card there is a button "View on Google Maps" - This redirects the user to the google maps url for that place opening in a new window allowing the user to explore further. 
-
-7. **Back to top button**
-    - To enhance the UX on pages with long listings a "Back to top" button scrolls the user back to the top of the page. 
-
-
-#### *Visible to all registered users*
+    - Both logged in Users and Admin can log out by clicking the Log Out menu item from the navigation bar. 
+    - They will be redirected to the homepage
 
 
 #### *Visible to admin*
 
-- Username: admin
-- Password:123123123
+<div align="center">
+<img src="https://res.cloudinary.com/daqyuuzq9/image/upload/v1603733923/Screenshot_2020-10-26_at_17.38.16_girpuo.png" alt="Screenshot: Galway Catagory Page"><br>
+</div>
 
-1. **Categories**
-    - Full CRUD funtionality  arriving at the homepage page the user is presented with the option to select their city of preference - at present only Galway is active 
-    - They can select Galway and be directed to the Galway Catagory Page
-At this time there are three main Categories, however, the page assumes that the Administrator might want to expand on it in the future. Therefore there are three options available here:
 
-Add Category
-Edit Category
-Delete Category
+1. **Project Categories**
+    - Full CRUD funtionality for categories
+        - Create Category
+        - Read Category
+        - Edit Category
+        - Delete Category
+    - When the *admin* chooses to delete a project a modal will pop up first to promp the user to confirm they do want to delete the project. 
+
+
+    - To view please use the following login details: 
+        - *Username*: admin
+        - *Password*:123123123
+
 
 
 ### Features Left to Implement
 
-1. **Increased City Coverage**
-
-In the future I would like to add more cities and towns to be featured on the site. 
-    - I would like to give ht suer more freedom to review what's availabilie based on their location
-
-
-2. **Additional Catagories**
-    - Allow the user to carry out more flexible searches via free text seaches
-
-3. **More Filtering options**
-    - Allow the user to freely select how they would like to filter and order the search output - by rating or locations. 
-
-4. **Automated content creation**
-    - Once a user submits their listing it would be great to dynalically generate this content on the listing page. 
+Future features may include but not limted to: 
+1. **Profile** - 
+    In the future I would like to build out the Charity Profile page
+    - At present it exists in the project but I have removed it from the navigation as I ran out of time to update it correctly 
+    - Password update feature
+2. **Project Detail Page** - Create project sign up to sync with Charities DB
+3. **Project List Page** - Pagination
 
    
 
 ## Technologies Used
 
-- This project uses HTML, CSS and JavaScript programming languages.
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
-- [GitPod](https://www.gitpod.io/) 
-    - Developer used **GitPod** for their IDE while building the website.
-- [Bootstrap](https://www.bootstrapcdn.com/)
-    - The project uses **Bootstrap** to simplify the structure of the website and make the website responsive easily.
-- [Google Fonts](https://fonts.google.com/)
-    - The project uses **Google fonts** to style the website fonts.
-- [GitHub](https://github.com/)
-    - This project uses **GitHub** to store and share all project code remotely. 
-    - The new GitHub Projects planner was utilised to plan and keep track of this project. This project plan can be viewed [here](https://github.com/AJGreaves/picflip/projects/1).
-    - The **Issues** feature in GitHub was used to generate links for all external images for this project. 
-    - This project used tools in **Canva** to edit, crop and save images. 
+
+### Coding Languages
+- This project uses the following languages:
+    - [Python](https://www.python.org)
+        - Flask,flask_pymongo, bson.objectid, werkzeug.security
+    - [BSON](https://www.mongodb.com/json-and-bson)
+    - [JQuery](https://jquery.com) - The project uses **JQuery** to simplify DOM manipulation.
+    - [HTML5](https://www.w3schools.com/html/) - Semantic markup language.
+    - [CSS3](https://www.w3schools.com/css/)-  Cascading Style Sheets to enhance the design of the site and support where materialize was limeted
+
+- This project uses the following apps:
+
+    - [GitPod](https://www.gitpod.io/) - **GitPod** was used as the main IDE while building the website.
+    - [MongoDB](https://www.mongodb.com/) - Database
+    - [Heroku](https://www.heroku.com) - Deployment
+    - [GitHub](https://github.com/) - This project uses **GitHub** to store code and manage version control.
+    - [Cloudinary](https://cloudinary.com/) - This project uses **Cloudinary** to store images. 
+
+- UI/UX This project uses the following Frameworks and sites to support the Design:
+
+- [Materialize](https://materializecss.com/) - The project uses **Materialize** as design framework to simplify the structure of the website and make the website responsive easily.
+- [Google Fonts](https://fonts.google.com/) - The project uses **Google fonts** to style the website fonts.
+- [Font Awesome](https://fontawesome.com/changelog/latest) - Icons are primarily sourced from Font Awesome
+- [Canva](https://www.canva.com/)-This project used tools in **Canva** to edit, crop and save images. 
     - **Canva** was also used to source all imagery and design of banner, logo and tile elements. 
-    - Colour picker was also used to ensure color consistency over the entire project. 
+- [Colour picker](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) was also used to ensure color consistency over the entire project. 
+
+### Code Validation
+
+
+
+
+
 
 ## Testing 
 
 Manual testing was carried out on this site by the developers family memebers to review the UX and responsivness 
+
+### Error pages
+
+The 404 error page with by entering in incorrect URL path and clicking the links on the 404 page to make sure they redirected correctly. 
+
+### Code Validators
+
+To ensure all code was clean, bug free and most importantly for python PEP8 compliant the following validators were used on the site: 
+
+[W3C HTML validator](https://validator.w3.org/) to validate CSS code
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS code
+[JSHint](https://jshint.com) to validate jQuery Code
+[PEP8 Validator](http://pep8online.com/) to validate Python code
+
+
 
 ## Deployment
 
