@@ -202,7 +202,13 @@ nav ul a {
   background-position: center;
 
 }
+.card {
+    margin: 1rem 0 1rem 0;
+}
 
+.row{
+    margin-top:20px;
+}
 
 .vol-card{
 background: linear-gradient( rgba(0, 0, 0, 0.2), 
@@ -238,6 +244,7 @@ background-size: cover;
 
 
 /* ----------------------------------------------------------- Cards */
+
 
 .card-panel{
     border-radius:20px;
